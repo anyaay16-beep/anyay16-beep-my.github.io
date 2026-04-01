@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Anya</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#38bdf8;
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#ffffff;
+}
+
+.light{
+  --bg:#83c1ff;
+  --card:#ffffff;
+  --text:#141f38;
+
+.contact a{
+ display:block;
+ margin:8px 0;
+ color:#000000;
+ text-decoration:none;
+  }
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:var(--bg);color:var(--text);transition:0.3s}
+
+.container{
+  display:block;
+  width:fit-content;
+  max-width:1100px;
+  margin:20px auto;
+  padding:20px;
+}
+
+@media(max-width:600px){
+  .container{width:100%;padding:14px}
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#020617;
+  flex-wrap:wrap;
+}
+
+nav h1{color:var(--primary);margin-right:16px;flex-shrink:0}
+nav ul{display:flex;gap:24px;list-style:none;flex-wrap:wrap;align-items:center;margin:0 16px}
+nav a{color:white;text-decoration:none;font-size:15px;padding:8px 12px;border-radius:8px;font-weight:600;letter-spacing:0.4px;display:inline-block;transition:background .18s,transform .12s}
+nav a:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+
+.toggle{
+  cursor:pointer;
+  background:var(--primary);
+  padding:5px 12px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+section{margin:40px 0}
+
+.hero{
+  text-align:center;
+}
+.hero img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:3px solid var(--primary);
+  margin-bottom:15px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  object-fit:cover;
+  object-position:center;
+}
+.hero h2 span{color:var(--primary)}
+.hero p{opacity:0.8;font-size:14px}
+
+.card{
+  background:var(--card);
+  padding:16px;
+  border-radius:15px;
+  margin-top:0;
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:220px;
+}
+.card:hover{transform:translateY(-6px)}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  align-items:start;
+}
+
+/* Project thumbnails */
+.grid .project-card a{display:block;color:inherit;text-decoration:none}
+.grid .project-card .thumb{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block}
+.grid .project-card p{margin-top:10px;font-weight:600;text-align:center}
+/* Figma embed thumbnail */
+.thumb-embed{width:100%;height:160px;border:0;border-radius:10px;display:block}
+
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr;gap:12px}
+  .card{min-height:unset;padding:14px}
+  .thumb-embed,.grid .project-card .thumb{height:140px}
+}
+
+/* Contact icons */
+.contact a{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;margin:8px 0}
+.contact .icon{width:20px;height:20px;flex:0 0 20px}
+.contact .icon svg{width:20px;height:20px;display:block;fill:currentColor}
+
+/* Skill icon sizing (match skill.html) */
+.skill-icon{width:24px;height:24px;flex:0 0 24px}
+.skill-icon svg{width:24px;height:24px;display:block}
+
+/* Hover styles for skill items and project cards */
+.skill-item{transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.skill-item:hover{transform:translateY(-6px);background:rgba(255,255,255,0.02);box-shadow:0 8px 20px rgba(0,0,0,0.35)}
+.card.project-card{transition:transform .18s ease,box-shadow .18s ease}
+.card.project-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,0.45)}
+
+/* Gradient divider and inner highlight box */
+.divider{height:6px;border-radius:6px;margin:28px 0;background:linear-gradient(90deg,#ff7ab6 0%,#7c4dff 40%,#38bdf8 100%);box-shadow:0 6px 18px rgba(60,60,90,0.18)}
+.inner-box{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);margin-bottom:22px}
+.inner-box{padding:22px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));box-shadow:0 12px 34px rgba(2,6,23,0.65);margin-bottom:22px}
+.inner-box .head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.inner-box .inner-icon{width:34px;height:34px;flex:0 0 34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(180deg,#ffffff11,#ffffff05)}
+.inner-box .inner-icon svg{width:20px;height:20px;display:block}
+.inner-box h3{margin:0;font-size:18px;color:var(--primary)}
+.inner-box p{opacity:0.92;margin-top:8px}
+.inner-box .btn{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--primary),#7c4dff);color:#fff;text-decoration:none;font-weight:600}
+
+/* Education grid */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.edu-item.card{min-height:unset;padding:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);box-shadow:0 10px 24px rgba(2,6,23,0.55);border-left:4px solid var(--primary);color:var(--text)}
+.edu-item h4{margin:0 0 6px 0;color:#ffffff}
+.edu-item p{color:rgba(255,255,255,0.92);margin:0;font-size:14px}
+.edu-item .edu-accent{height:6px;width:48px;border-radius:6px;background:linear-gradient(90deg,var(--primary),#7c4dff);margin-bottom:10px}
+
+/* Section separator line */
+.section-line{height:6px;border-radius:6px;margin:12px 0;background:linear-gradient(90deg,#ff7ab6 0%,#7c4dff 40%,#38bdf8 100%);opacity:0.14}
+
+/* Skill */
+.skill-bar{margin:10px 0;font-size:14px}
+.bar{height:8px;background:#334155;border-radius:10px;margin-top:5px}
+.fill{height:8px;background:var(--primary);border-radius:10px}
+
+/* Form */
+form{margin-top:10px}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border:none;
+  border-radius:8px;
+}
+button{
+  margin-top:10px;
+  padding:10px;
+  width:100%;
+  background:var(--primary);
+  border:none;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+}
+
+/* Footer - gradient, columns, and social icons */
+.site-footer{
+  margin-top:28px;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 12px 40px rgba(2,6,23,0.6);
+  background:linear-gradient(90deg,#7c4dff 0%,#38bdf8 60%);
+  color:#fff;
+}
+.site-footer .footer-inner{
+  display:flex;
+  gap:24px;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:28px 24px;
+  max-width:1100px;
+  margin:auto;
+}
+.footer-col{flex:1;min-width:180px}
+.footer-col h4{margin:0 0 8px 0;color:rgba(255,255,255,0.95)}
+.footer-col p, .footer-col a{color:rgba(255,255,255,0.9);text-decoration:none;font-size:14px}
+.footer-links{display:flex;flex-direction:column;gap:6px}
+.footer-social{display:flex;gap:10px;margin-top:8px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;text-decoration:none}
+.footer-bottom{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:10px 16px;text-align:center;font-size:13px;color:rgba(255,255,255,0.8)}
+
+@media(max-width:720px){
+  .site-footer .footer-inner{flex-direction:column;gap:16px}
+}
+
+@media(max-width:600px){
+  nav{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+
+<body>
+  
+<nav>
+  <h1>MyCV>Anya</h1>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skill.html">Skill</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="toggle" onclick="toggleMode()">Mode</div>
+</nav>
+
+<div class="container">
+  <div class="divider" aria-hidden="true"></div>
+  <div class="inner-box card">
+    <div class="head">
+      <span class="inner-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7v3l2 3v1H3v-1l2-3V9a7 7 0 0 1 7-7z" fill="#fff" opacity=".9"/></svg>
+      </span>
+      <h3>Highlight</h3>
+    </div>
+    <p>Selamat datang di portofolio saya — ringkasan singkat, pencapaian, dan profile.</p>
+    <a class="btn" href="about.html">Lihat CV</a>
+  </div>
+
+<section class="hero">
+  <div class="card">
+  <background : var(--primary)></background>
+  <colorbg : #white> </colorbg>
+  <img src="anyak.jpg">
+  <h2>Halo, Saya <span>Anya</span></h2>
+  <p>Student | X PPLG 1</p>
+</div>
+</section>
+
+<section id="about">
+  <div class="divider" aria-hidden="true"></div>
+  <h2>Profile</h2>
+  <div class="section-line" aria-hidden="true"></div>
+  <div class="card">
+    <p>Saya 'Anya Lestari' merupakan salah satu siswa jurusan PPLG di SMK Negeri 1 Bawang yang sedang fokus belajar pada pengembangan web modern dan desain interaktif. Saya memiliki kemampuan dan kemauan serta motivasi tinggi untuk terus belajar dan mengembangkan diri dalam bidang teknologi informasi,suka berinteraksi dengan orang lain dan memiliki kemampuan problem-solving yang baik.Mampu bertanggung jawab dan bekerja sama dalam tim.</p>
+  </div>
+</section>
+
+<section id="Pendidikan">
+  <h2>Pendidikan</h2>
+  <div class="section-line" aria-hidden="true"></div>
+  <div class="card">
+    <h3>Riwayat Pendidikan</h3>
+    <div class="edu-grid">
+      <div class="edu-item card">
+        <h4>TK</h4>
+        <p>TK PGRI Medayu (2013-2016)</p>
+      </div>
+      <div class="edu-item card">
+        <h4>SD</h4>
+        <p>SD Negeri 3 Medayu (2016-2022)</p>
+      </div>
+      <div class="edu-item card">
+        <h4>SMP</h4>
+        <p>SMP Negeri 1 Wanadadi (2022-2025)</p>
+      </div>
+      <div class="edu-item card">
+        <h4>SMA/K</h4>
+        <p>SMK Negeri 1 Bawang (Saat ini)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="Pengalaman">
+  <h2>Organisasi</h2>
+  <div class="section-line" aria-hidden="true"></div>
+  <div class="card">
+    <h3>Pengalaman Organisasi</h3><br>
+    <div class="edu-item card">
+    <p>Saya Aktif Mengikuti Organisasi</p>
+    <p>SMP : </p>
+    <p>Organisasi Kepramukaan Dewan Penggalang (DP)</p>
+    <p>Organisasi gabungan DP & OSIS</p>
+    <p>SMA/K : </p>
+    <P>Organisasi Eskul Dance</p>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <h2>Project</h2>
+  <div class="section-line" aria-hidden="true"></div>
+  <div class="grid">
+    <div class="card project-card">
+      <a href="https://www.figma.com/design/8gOWBwW7fgzAnR6WAbyxfd/Project-1-2?m=auto&t=qcA8O3c2BLgW5V1m-6" target="_blank">
+        <iframe class="thumb-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F8gOWBwW7fgzAnR6WAbyxfd%2FProject-1-2%3Fm%3Dauto%26t%3DqcA8O3c2BLgW5V1m-6" allowfullscreen></iframe>
+        <p>UI/UX Login</p>
+      </a>
+    </div>
+    <div class="card project-card">
+      <a href="https://www.figma.com/design/YSoQUcmY85i59Eb8CKbRmF/UI-UX-pemesanan-tiket-bioskop?m=auto&t=qcA8O3c2BLgW5V1m-6" target="_blank">
+        <iframe class="thumb-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FYSoQUcmY85i59Eb8CKbRmF%2FUI-UX-pemesanan-tiket-bioskop%3Fm%3Dauto%26t%3DqcA8O3c2BLgW5V1m-6" allowfullscreen></iframe>
+        <p>UI/UX Pemesanan Tiket Bioskop</p>
+      </a>
+    </div>
+    <div class="card project-card">
+      <a href="https://www.figma.com/design/8gOWBwW7fgzAnR6WAbyxfd/Project-1-2?node-id=28-2&t=NZ8XXKVCJsNU75dw-1" target="_blank">
+        <iframe class="thumb-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2F8gOWBwW7fgzAnR6WAbyxfd%2FProject-1-2%3Fnode-id%3D28-2%26t%3DNZ8XXKVCJsNU75dw-1" allowfullscreen></iframe>
+        <p>UI/UX Halaman Shoppe</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="skill">
+  <h2>Kemampuan</h2>
+  <div class="section-line" aria-hidden="true"></div>
+  <div class="card">
+    <p>Saya memiliki beberapa kemampuan yang dapat saya banggakan meliputi</p><br>
+    <div class="edu-item card"
+    <p>Personalskill : </p>
+    <p>Mampu melakukan komunikasi dengan baik,dapat bekerja sama dengan tim dengan penuh tanggung jawab saya juga bisa menjadi seorang leader dalam sebuah kelompok saya,Problem Solving,Responsibility,dapat berfikir dan memukaukan ide pikiran kreatif serta mampu berfikir secara kritis</p>
+    <p>Saya juga memiliki bakat dan kemampuan softskill seperti editing dan design</p><br>
+    <div class="edu-item card"
+    <p>Softskill :  </p>
+    <p>Editing & Design (Poster Digital,Video,Foto,Sosial media feeds,Typography,Logo,UI/UX application(Figma,Canva,Capcut,Picsart,Lightroom,VN))</p><br>
+  </div>
+  <div class="skill-list">
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 2.5l1.2 13.5L12 22l7.3-6 1.2-13.5H3.5z" fill="#e34f26"/></svg></span><span>HTML</span></div><span>70%</span></div>
+        <div class="bar"><div class="fill" data-w="70%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 2h16v20L12 18 4 22V2z" fill="#1572b6"/></svg></span><span>CSS</span></div><span>62%</span></div>
+        <div class="bar"><div class="fill" data-w="62%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="3" fill="#f7df1e"/><text x="12" y="16" font-size="9" font-weight="700" text-anchor="middle" fill="#000">JS</text></svg></span><span>JavaScript</span></div><span>70%</span></div>
+        <div class="bar"><div class="fill" data-w="59%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g>
+          <circle cx="8" cy="8" r="3.2" fill="#f24e1e"/>
+          <circle cx="12.8" cy="8" r="3.2" fill="#a259ff"/>
+          <circle cx="8" cy="12.8" r="3.2" fill="#ff7262"/>
+          <circle cx="12.8" cy="12.8" r="3.2" fill="#1abcfe"/>
+        </g></svg></span><span>Figma (UI/UX)</span></div><span>85%</span></div>
+        <div class="bar"><div class="fill" data-w="85%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#10b981"/><path d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#fff" opacity=".9"/></svg></span><span>Editing & Design</span></div><span>82%</span></div>
+        <div class="bar"><div class="fill" data-w="82%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="9" ry="7" fill="#777bb3"/><text x="12" y="15" font-size="7" font-weight="700" text-anchor="middle" fill="#fff">PHP</text></svg></span><span>PHP</span></div><span>60%</span></div>
+        <div class="bar"><div class="fill" data-w="60%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="16" height="3" rx="1" fill="#00758f"/><rect x="4" y="11" width="16" height="3" rx="1" fill="#00758f"/><rect x="4" y="16" width="16" height="3" rx="1" fill="#00758f"/></svg></span><span>MySQL</span></div><span>65%</span></div>
+        <div class="bar"><div class="fill" data-w="50%"></div></div>
+      </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<div class="section-line" aria-hidden="true"></div>
+<div class="card">
+    <a href="https://maps.app.goo.gl/bJPUQsXdyaJhPYgN9" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
+      Alamat : Medayu, RT 02 / RW 03, Wanadadi, Banjarnegara
+    </a>
+    <a href="tel:088229613786">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 4a1 1 0 0 1 1-1h2.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.01l-2.21 2.21z"/></svg></span>
+      Telepon : +62 882-2961-3786
+    </a>
+    <a href="mailto:anyaay16@gmail.com">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+      E-mail : anyaay16@gmail.com
+    </a>
+    <a href="https://www.instagram.com/walseann.yia?igsh=bDB4eHZpMXcxbGN6" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 3.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/></svg></span>
+      Instagram : @walsean.yia
+    </a>
+    <a href="https://github.com/anyaay16-beep" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.16 6.84 8.16s6.84-3.74 6.84-8.16C18.84 6.48 14.52 2 12 2zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg></span>
+      GitHub : @anyaay16-beep
+    </a>
+  </div>
+  <br>
+  <footer class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Tentang Anya</h4>
+        <p>Saya Anya Lestari — pelajar PPLG yang fokus pada pengembangan web dan desain UI/UX. Saya suka belajar dan mengerjakan proyek kreatif.</p>
+      </div>
+      <div class="footer-col footer-links">
+        <h4>Jelajahi</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects</a>
+        <a href="skill.html">Skills</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ikuti</h4>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/walseann.yia?igsh=bDB4eHZpMXcxbGN6" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7z" stroke="#fff" stroke-width="1.2" opacity="0.95"/></svg>
+          </a>
+          <a href="mailto:anyaay16@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.5l9 6 9-6" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://maps.app.goo.gl/bJPUQsXdyaJhPYgN9" target="_blank" rel="noopener" aria-label="Maps">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#fff" stroke-width="1.2" opacity="0.95"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Portofolio Anya — </div>
+  </footer>
+
+<script>
+function toggleMode(){
+ document.body.classList.toggle('light');
+}
+
+function kirim(e){
+ e.preventDefault();
+ alert('Pesan berhasil dikirim!');
+}
+</script>
+
+</body>
+</html>

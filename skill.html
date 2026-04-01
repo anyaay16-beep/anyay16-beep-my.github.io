@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill - Anya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1020;--text:#e6eef9;--muted:#9aa4bf;--card:#111827;--primary:#38bdf8}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:linear-gradient(180deg,var(--bg),#071028);color:var(--text);padding:28px}
+    .card{background:rgba(255,255,255,0.02);padding:20px;border-radius:12px;max-width:900px;margin:auto}
+    .bar{height:12px;background:rgba(255,255,255,0.04);border-radius:999px;width:100%;overflow:hidden}
+    .fill{height:100%;background:linear-gradient(90deg,#38bdf8,#60a5fa);width:0;border-radius:999px;transition:width .8s ease}
+    .skill-list{display:grid;gap:12px;margin-top:12px}
+    .skill-item{display:flex;flex-direction:column;gap:8px}
+    .skill-item{transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+    .skill-item:hover{transform:translateY(-6px);background:rgba(255,255,255,0.02);box-shadow:0 8px 20px rgba(0,0,0,0.35)}
+    .skill-item .label{display:flex;justify-content:space-between;align-items:center;font-weight:600}
+    .skill-item .label .left{display:flex;align-items:center;gap:8px}
+    .skill-icon{width:24px;height:24px;flex:0 0 24px}
+    .skill-icon svg{width:24px;height:24px;display:block}
+    a.back{display:inline-block;margin:12px 0;color:var(--primary);text-decoration:none}
+    @media(max-width:600px){body{padding:18px}.skill-list{gap:10px}}
+  </style>
+  <script>
+    window.addEventListener('load',()=>{
+      document.querySelectorAll('.fill').forEach((el)=>{el.style.width = el.dataset.w});
+    });
+  </script>
+</head>
+<body>
+  <a class="back" href="index.html">← Kembali</a>
+  <div class="card">
+    <h1>Skill&Kemampuan</h1>
+
+    <div class="skill-list">
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 2.5l1.2 13.5L12 22l7.3-6 1.2-13.5H3.5z" fill="#e34f26"/></svg></span><span>HTML</span></div><span>70%</span></div>
+        <div class="bar"><div class="fill" data-w="70%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 2h16v20L12 18 4 22V2z" fill="#1572b6"/></svg></span><span>CSS</span></div><span>62%</span></div>
+        <div class="bar"><div class="fill" data-w="62%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="3" fill="#f7df1e"/><text x="12" y="16" font-size="9" font-weight="700" text-anchor="middle" fill="#000">JS</text></svg></span><span>JavaScript</span></div><span>70%</span></div>
+        <div class="bar"><div class="fill" data-w="70%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g>
+          <circle cx="8" cy="8" r="3.2" fill="#f24e1e"/>
+          <circle cx="12.8" cy="8" r="3.2" fill="#a259ff"/>
+          <circle cx="8" cy="12.8" r="3.2" fill="#ff7262"/>
+          <circle cx="12.8" cy="12.8" r="3.2" fill="#1abcfe"/>
+        </g></svg></span><span>Figma (UI/UX)</span></div><span>85%</span></div>
+        <div class="bar"><div class="fill" data-w="85%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" fill="#10b981"/><path d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#fff" opacity=".9"/></svg></span><span>Editing & Design</span></div><span>89%</span></div>
+        <div class="bar"><div class="fill" data-w="89%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="9" ry="7" fill="#777bb3"/><text x="12" y="15" font-size="7" font-weight="700" text-anchor="middle" fill="#fff">PHP</text></svg></span><span>PHP</span></div><span>60%</span></div>
+        <div class="bar"><div class="fill" data-w="60%"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="label"><div class="left"><span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="16" height="3" rx="1" fill="#00758f"/><rect x="4" y="11" width="16" height="3" rx="1" fill="#00758f"/><rect x="4" y="16" width="16" height="3" rx="1" fill="#00758f"/></svg></span><span>MySQL</span></div><span>65%</span></div>
+        <div class="bar"><div class="fill" data-w="65%"></div></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
