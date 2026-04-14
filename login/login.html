@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Form login anya</title>
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #001f3b, #31bfc7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN BOX */
+.login-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* PASSWORD WRAPPER */
+.password-box {
+    position: relative;
+}
+
+.toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #1e4e78, #001f3b);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* POPUP */
+.popup {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 280px;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.overlay.show .popup {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ICON */
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* LOADING */
+.loader {
+    border: 5px solid #eee;
+    border-top: 5px solid #4facfe;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* WARNA */
+.success .icon { color: #28a745; }
+.error .icon { color: #dc3545; }
+
+/* BUTTON OK */
+.ok-btn {
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #4facfe;
+    color: white;
+    cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+
+    <div class="password-box">
+        <input type="password" id="password" placeholder="Password">
+        <span class="toggle" onclick="togglePassword()">👁️</span>
+    </div>
+
+    <button id="btnLogin" onclick="login()">LOGIN</button>
+</div>
+
+<!-- POPUP -->
+<div id="overlay" class="overlay">
+    <div id="popup" class="popup">
+        <div id="icon"></div>
+        <h3 id="pesan"></h3>
+        <button id="okBtn" class="ok-btn" onclick="tutup()" style="display:none;">OK</button>
+    </div>
+</div>
+
+<script>
+// SHOW / HIDE PASSWORD
+function togglePassword() {
+    var pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+// LOGIN
+function login() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+    var pesan = document.getElementById("pesan");
+    var icon = document.getElementById("icon");
+    var okBtn = document.getElementById("okBtn");
+
+    popup.classList.remove("success", "error");
+
+    // VALIDASI PANJANG PASSWORD
+    if (pass.length < 6) {
+        overlay.style.display = "flex";
+        setTimeout(() => overlay.classList.add("show"), 10);
+
+        icon.innerHTML = "<div class='icon'>❗</div>";
+        pesan.innerText = "Password minimal 6 karakter!";
+        popup.classList.add("error");
+        okBtn.style.display = "inline-block";
+        return;
+    }
+
+    // tampilkan loading
+    overlay.style.display = "flex";
+    setTimeout(() => overlay.classList.add("show"), 10);
+
+    icon.innerHTML = "<div class='loader'></div>";
+    pesan.innerText = "Memproses...";
+    okBtn.style.display = "none";
+
+    setTimeout(() => {
+        if (user === "20355" && pass === "pplgjuara") {
+            pesan.innerText = "Login Berhasil";
+            icon.innerHTML = "<div class='icon'>✔️</div>";
+            popup.classList.add("success");
+
+            document.getElementById("username").disabled = true;
+            document.getElementById("password").disabled = true;
+            document.getElementById("btnLogin").innerText = "SELESAI";
+            document.getElementById("btnLogin").disabled = true;
+
+        } else {
+            pesan.innerText = "Login Gagal";
+            icon.innerHTML = "<div class='icon'>❌</div>";
+            popup.classList.add("error");
+        }
+
+        okBtn.style.display = "inline-block";
+    }, 2000);
+}
+
+// TUTUP POPUP
+function tutup() {
+    var overlay = document.getElementById("overlay");
+    overlay.classList.remove("show");
+
+    setTimeout(() => {
+        overlay.style.display = "none";
+    }, 300);
+}
+</script>
+
+</body>
+</html>
