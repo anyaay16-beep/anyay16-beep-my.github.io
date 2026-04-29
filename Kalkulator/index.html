@@ -1,1 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator anya</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            /* Pastel palette */
+            --bg: #f0f2dd; /* very light lavender */
+            --shadow-dark: #d6c7d1; /* soft muted lavender shadow */
+            --shadow-light: #b8b8b8;
+            --text: #e012a2; /* soft gray-blue for text */
+            --accent-blue: #a8d0e6; /* pastel blue */
+            --accent-pink: #ffd1e8; /* pastel pink */
+            --accent-green: #d7f0f3; /* pastel mint */
+        }
 
+        * { box-sizing: border-box; font-family: 'Quicksand', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, #e3e0b7 0%, #fff6ff 50%, #f9acd2 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* BOX UTAMA DENGAN EFEK 3D */
+        .calculator {
+            background: var(--bg);
+            width: 310px;
+            height: 550px;
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 20px 20px 60px var(--shadow-dark), 
+                       -20px -20px 60px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* decorative separators */
+        .calculator::before,
+        .calculator::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        /* line under display area */
+        .calculator::before { top: 140px; }
+        /* line above drawer/controls */
+        .calculator::after { top: 420px; }
+
+        /* Display dengan efek "Cekung" ke dalam */
+        .display-area {
+            flex: 1;
+            margin: 30px 20px 10px;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: inset 6px 6px 12px var(--shadow-dark), 
+                        inset -6px -6px 12px var(--shadow-light);
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #screen {
+            width: 100%;
+            border: none;
+            font-size: 2rem;
+            color: var(--text);
+            background: transparent;
+            text-align: right;
+            outline: none;
+            font-weight: 700;
+        }
+
+        /* Grid Tombol Utama */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 20px;
+            margin-bottom: 60px;
+        }
+
+        /* Trigonometry row under main grid */
+        .trig-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 0 20px 18px 20px;
+            margin-top: 22px;
+            margin-bottom: 36px;
+        }
+
+        /* Tombol dengan efek "Menonjol" */
+        button {
+            height: 52px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            background: var(--bg);
+            cursor: pointer;
+            box-shadow: 5px 5px 10px var(--shadow-dark), 
+                        -5px -5px 10px var(--shadow-light);
+            transition: all 0.2s ease;
+        }
+
+        /* thin lines between buttons */
+        .main-grid button { border: 1px solid rgba(0,0,0,0.03); }
+
+        /* Efek saat tombol ditekan (masuk ke dalam) */
+        button:active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                        inset -3px -3px 6px var(--shadow-light);
+            transform: scale(0.98);
+        }
+
+        .btn-op { color: #5b9bd5; }
+        .btn-ac { color: #e76f51; }
+        .btn-eq { 
+            grid-column: span 2; 
+            background: var(--accent-green); 
+            color: #4a7c59;
+        }
+
+        /* Drawer Scientific */
+        .drawer {
+            position: absolute;
+            bottom: -220px;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background: var(--bg);
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -10px 20px var(--shadow-dark);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 15px;
+            z-index: 5;
+        }
+        .drawer.active { bottom: 0; }
+        .handle {
+            width: 40px; height: 6px; 
+            background: var(--shadow-dark);
+            margin: 0 auto 15px; 
+            border-radius: 10px; 
+            cursor: pointer;
+            box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sci-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .btn-sci { font-size: 0.8rem; height: 42px; color: #8e7dbe; }
+
+        /* History Panel */
+        .history-panel {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: var(--bg);
+            z-index: 10;
+            transition: 0.4s ease;
+            padding: 20px;
+            box-shadow: 0 10px 20px var(--shadow-dark);
+        }
+        .history-panel.active { top: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <!-- History -->
+        <div class="history-panel" id="historyPanel">
+            <p style="font-size: 12px; font-weight:bold; color: #999;">HISTORY</p>
+            <div id="historyList" style="font-size: 13px; max-height: 80%; overflow-y: auto;"></div>
+            <button onclick="toggleHistory()" style="width:100%; margin-top:10px; height:35px; font-size:12px;">Close</button>
+        </div>
+
+        <!-- Layar Cekung -->
+        <div class="display-area" onclick="toggleHistory()">
+            <div style="font-size: 9px; color: #aaa; margin-bottom: 5px;">TAP FOR HISTORY ↓</div>
+            <input type="text" id="screen" readonly placeholder="0">
+        </div>
+
+        <!-- Tombol Utama -->
+            <div class="main-grid">
+            <button class="btn-ac" onclick="allClear()">AC</button>
+            <button onclick="backspace()">C</button>
+            <button class="btn-op" onclick="addVal('%')">%</button>
+            <button class="btn-op" onclick="addVal('/')">÷</button>
+
+            <button onclick="addVal('7')">7</button>
+            <button onclick="addVal('8')">8</button>
+            <button onclick="addVal('9')">9</button>
+            <button class="btn-op" onclick="addVal('*')">×</button>
+
+            <button onclick="addVal('4')">4</button>
+            <button onclick="addVal('5')">5</button>
+            <button onclick="addVal('6')">6</button>
+            <button class="btn-op" onclick="addVal('-')">-</button>
+
+            <button onclick="addVal('1')">1</button>
+            <button onclick="addVal('2')">2</button>
+            <button onclick="addVal('3')">3</button>
+            <button class="btn-op" onclick="addVal('+')">+</button>
+
+            <button onclick="addVal('0')">0</button>
+            <button onclick="addVal('.')">.</button>
+            <button class="btn-eq" onclick="calculate()">=</button>
+        </div>
+
+        <!-- Trigonometry row (moved down) -->
+        <div class="trig-row">
+            <button class="btn-sci" onclick="trig('sin')">sin</button>
+            <button class="btn-sci" onclick="trig('cos')">cos</button>
+            <button class="btn-sci" onclick="trig('tan')">tan</button>
+            <button class="btn-sci" onclick="trig('asin')">asin</button>
+            <button class="btn-sci" onclick="trig('acos')">acos</button>
+            <button class="btn-sci" onclick="trig('atan')">atan</button>
+        </div>
+
+        <!-- Drawer 3D -->
+        <div class="drawer" id="sciDrawer">
+            <div class="handle" onclick="toggleDrawer()"></div>
+            <div class="sci-grid">
+                <button class="btn-sci" onclick="trig('sin')">sin</button>
+                <button class="btn-sci" onclick="trig('cos')">cos</button>
+                <button class="btn-sci" onclick="trig('tan')">tan</button>
+                <button class="btn-sci" onclick="math('log')">log</button>
+                <button class="btn-sci" onclick="trig('asin')">sn⁻¹</button>
+                <button class="btn-sci" onclick="trig('acos')">cs⁻¹</button>
+                <button class="btn-sci" onclick="trig('atan')">tn⁻¹</button>
+                <button class="btn-sci" onclick="math('sqrt')">√</button>
+                <button class="btn-sci" onclick="addVal('**')">xʸ</button>
+                <button class="btn-sci" onclick="addVal('Math.PI')">π</button>
+                <button class="btn-sci" onclick="calcMean()" style="grid-column: span 2;">MEAN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const screen = document.getElementById('screen');
+        const drawer = document.getElementById('sciDrawer');
+        const historyPanel = document.getElementById('historyPanel');
+        const historyList = document.getElementById('historyList');
+
+        function toggleDrawer() { drawer.classList.toggle('active'); }
+        function toggleHistory() { historyPanel.classList.toggle('active'); }
+
+        function addVal(v) { screen.value += v; }
+        function allClear() { screen.value = ''; }
+        function backspace() { screen.value = screen.value.slice(0, -1); }
+
+        function math(type) {
+            let val = eval(screen.value.replace(/π/g, Math.PI));
+            screen.value = type === 'sqrt' ? Math.sqrt(val).toFixed(2) : Math.log10(val).toFixed(2);
+        }
+
+        function trig(type) {
+            let val = eval(screen.value.replace(/π/g, Math.PI));
+            let res;
+            if (type.startsWith('a')) {
+                res = type === 'asin' ? Math.asin(val) : type === 'acos' ? Math.acos(val) : Math.atan(val);
+                res = res * 180 / Math.PI;
+            } else {
+                let rad = val * Math.PI / 180;
+                res = type === 'sin' ? Math.sin(rad) : type === 'cos' ? Math.cos(rad) : Math.tan(rad);
+            }
+            screen.value = parseFloat(res.toFixed(4));
+        }
+
+        function calcMean() {
+            try {
+                let parts = screen.value.split('+').map(Number);
+                screen.value = (parts.reduce((a,b) => a+b) / parts.length).toFixed(2);
+            } catch { screen.value = 'Format: 1+2'; }
+        }
+
+        function calculate() {
+            try {
+                let exp = screen.value;
+                let res = eval(exp.replace(/π/g, Math.PI));
+                if (res % 1 !== 0) res = parseFloat(res.toFixed(4));
+                
+                const item = document.createElement('div');
+                item.style.padding = "8px";
+                item.style.marginBottom = "5px";
+                item.style.borderRadius = "8px";
+                item.style.boxShadow = "inset 2px 2px 5px var(--shadow-dark)";
+                item.innerHTML = `<div style="color:#888; font-size:11px;">${exp}</div><div>= ${res}</div>`;
+                historyList.prepend(item);
+
+                screen.value = res;
+            } catch { screen.value = 'Error'; }
+        }
+    </script>
+</body>
+</html>
