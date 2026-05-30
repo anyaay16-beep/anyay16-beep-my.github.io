@@ -1,0 +1,91 @@
+/* Mengatur font global aplikasi menggunakan Plus Jakarta Sans */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Transisi halus kustom untuk interaksi elemen UI (Efek UX) */
+.smooth-transition {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Animasi untuk Screen Opening & Loader */
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+.opening-hide {
+    animation: fadeOut 0.6s ease-in-out forwards;
+    animation-delay: 1.5s; /* Layar opening muncul selama 1.5 detik */
+}
+
+.smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Mengubah style bawaan kalender agar serasi dengan nuansa retro */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(15%) sepia(10%) saturate(1000%) hue-rotate(340deg) brightness(95%) contrast(90%);
+    cursor: pointer;
+}
+
+/* ========================================================
+   ANIMATION & STYLE LOGO BARU (BUKU & PENA ANIMASI)
+   ======================================================== */
+
+/* Kotak Utama Container Logo */
+.logo-custom-css {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: #FFF;
+    border: 3px solid #4A3B32;
+    border-radius: 12px;
+    box-shadow: 2px 2px 0px 0px #4A3B32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: visible;
+    user-select: none;
+    animation: logoFloat 4s infinite ease-in-out;
+}
+
+/* Ikon Buku Terbuka di Dalam Logo */
+.logo-book-icon {
+    font-size: 24px;
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(1px 1px 0px rgba(74, 59, 50, 0.2));
+}
+
+/* Ikon Pena Menulis */
+.logo-pen-icon {
+    position: absolute;
+    font-size: 18px;
+    top: -2px;
+    right: -2px;
+    transform-origin: bottom left;
+    animation: logoPenWrite 2s infinite ease-in-out;
+    filter: drop-shadow(1.5px 1.5px 0px #4A3B32);
+}
+
+/* Efek Interaksi Hover */
+.logo-custom-css:hover .logo-book-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* LOGIKA GERAKAN ANIMASI KEDUA ELEMEN */
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@keyframes logoPenWrite {
+    0%, 100% { transform: translate(0, 0) rotate(25deg); }
+    50% { transform: translate(-3px, 3px) rotate(10deg); }
+}
