@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Resmi Desa Medayu - Beranda</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-content">
+      <img src="assets/logo.png" alt="Logo Desa">
+      <h2>DESA MEDAYU</h2>
+      <div class="loading"></div>
+    </div>
+  </div>
+
+  <div class="welcome-popup" id="popup">
+    <div class="popup-box">
+      <img src="assets/logo.png" alt="Logo Desa">
+      <h1>Selamat Datang</h1>
+      <p>Website Resmi Desa Medayu<br>Kecamatan Wanadadi, Kabupaten Banjarnegara</p>
+      <button id="enterBtn" onclick="closePopup()">Masuk Website</button>
+    </div>
+  </div>
+
+  <nav id="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Logo">
+    <div>
+      <h2>DESA MEDAYU</h2>
+      <span>Kab. Banjarnegara</span>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Beranda</a></li>
+    <li><a href="pages/profil.html">Profil</a></li>
+    <li><a href="pages/pemerintahan.html">Pemerintahan</a></li>
+    <li><a href="pages/data.html">Data Monografi</a></li>
+    <li><a href="pages/informasi.html">Informasi</a></li>
+    <li><a href="pages/kontak.html">Kontak</a></li>
+  </ul>
+
+  <div class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+  <header class="main-hero">
+  <div class="top-search-container"></div>
+
+  <div class="hero-bg-slider">
+    <div class="slide active"><img src="assets/img/hero.jpg" alt="Kegiatan Desa 1"></div>
+    <div class="slide"><img src="assets/img/hero2.png" alt="Kegiatan Desa 2"></div>
+    <div class="slide"><img src="assets/img/hero3.png" alt="Kegiatan Desa 3"></div>
+  </div>
+
+  <div class="hero-slider-container">
+    <div class="hero-text" data-aos="fade-right">
+      <h2>WELCOME to</h2>
+      <h1>Desa <span>MEDAYU</span></h1>
+      <p>Medayu, Aman, Damai, Sejahtera</p>
+      <div class="hero-actions">
+        <a href="#profil" class="btn-pill-light">Jelajahi</a>
+        <a href="pages/galeri.html" class="btn-pill-outline">Galeri</a>
+      </div>
+    </div>
+    
+    <div class="hero-badge" data-aos="fade-left">
+      <img src="assets/logo.png" alt="Logo Medayu Big">
+      <h3>Medayu</h3>
+      <p>Aman, Damai, Sejahtera</p>
+    </div>
+    
+    <div class="hero-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <div class="hero-marquee">
+    <div class="marquee-content">
+      <span>Selamat Datang di Website Resmi Desa Medayu Kecamatan Wanadadi Kabupaten Banjarnegara — Selalu Dapatkan Informasi Terkini Mengenai Kegiatan Desa, Transparansi Data Monografi, dan Pelayanan Administrasi Publik Masyarakat Desa Medayu — Aman, Damai, Sejahtera! — </span>
+      <span>Selamat Datang di Website Resmi Desa Medayu Kecamatan Wanadadi Kabupaten Banjarnegara — Selalu Dapatkan Informasi Terkini Mengenai Kegiatan Desa, Transparansi Data Monografi, dan Pelayanan Administrasi Publik Masyarakat Desa Medayu — Aman, Damai, Sejahtera! — </span>
+    </div>
+  </div>
+</header>
+
+  <main class="content-wrapper">
+    
+    <div class="center-pill-title" id="profil" data-aos="fade-up">
+      <span class="pill-btn-green">Profil</span>
+    </div>
+
+    <section class="about-grid-section" data-aos="fade-up">
+      <div class="about-left">
+        <h2 class="block-title">Tentang</h2>
+        <span class="sub-title-grey">Medayu</span>
+        <p class="desc-text">
+          Desa Medayu bertransformasi dinamis menjadi pusat pemukiman desa yang mandiri, rukun, serta maju secara sosiokultural di Kecamatan Wanadadi.
+        </p>
+      </div>
+      <div class="about-right">
+        <div class="img-frame-tentang">
+          <img src="assets/img/pemerintahan.jpg" alt="Kantor Desa Medayu">
+          <div class="frame-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <div class="main-layout-vertikal">
+  
+  <div class="visi-box-full">
+    <h3><i class="fa-solid fa-bullseye" style="color: var(--primary); margin-right: 8px;"></i> Visi & Misi Desa</h3>
+    <div class="visi-content-placeholder">
+      <strong>VISI:</strong><br>
+      "Terwujudnya Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya Berlandaskan Gotong Royong."
+      <br><br>
+      <strong>MISI:</strong><br>
+      1. Meningkatkan kualitas pelayanan publik yang transparan dan akuntabel.<br>
+      2. Mendorong pembangunan infrastruktur desa yang merata.<br>
+      3. Meningkatkan perekonomian warga melalui pemberdayaan UMKM dan pertanian.
+    </div>
+  </div>
+  
+  <div class="stat-menu-box-full">
+    <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary); margin-right: 8px;"></i> Statistik Desa</h3>
+    
+    <div class="stat-buttons-grid-beranda">
+      
+      <a href="pages/data.html#wilayah" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-map-location-dot"></i> Wilayah Dusun
+      </a>
+      
+      <a href="pages/data.html#pendidikan" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-graduation-cap"></i> Pendidikan
+      </a>
+      
+      <a href="pages/data.html#agama" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-hands-praying"></i> Agama
+      </a>
+      
+      <a href="pages/data.html#pekerjaan" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-briefcase"></i> Pekerjaan
+      </a>
+      
+      <a href="pages/data.html#perkawinan" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-person-half-dress"></i> Perkawinan
+      </a>
+      
+      <a href="pages/data.html#umur" class="btn-stat-link putih-standar">
+        <i class="fa-solid fa-cake-candles"></i> Umur
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+    <section class="counter-grid" data-aos="fade-up">
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+        <span class="count-label">Penduduk</span>
+        <h2 class="counter" data-target="3518">0</h2>
+        <span class="count-unit">jiwa</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
+        <span class="count-label">KK / Ruh</span>
+        <h2 class="counter" data-target="1200">0</h2>
+        <span class="count-unit">OLAKT</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-store"></i></div>
+        <span class="count-label">UMKM</span>
+        <h2 class="counter" data-target="28">0</h2>
+        <span class="count-unit">pilar</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-map"></i></div>
+        <span class="count-label">Dusun</span>
+        <h2 class="counter" data-target="4"></h2>
+        <span class="count-unit">pilar</span>
+      </div>
+    </section>
+
+<section class="aparatur-section">
+  <div class="section-header-title">
+    <h3>PEMERINTAH DESA</h3>
+    <span>Aparatur Perangkat Desa Medayu</span>
+    <p style="font-size: 13px; color:#666; margin-top:5px;">
+      Geser kanan/kiri untuk melihat nama lain. Klik kartu untuk melihat detail profil.
+    </p>
+  </div>
+  
+  <div class="swiper aparatSwiper" data-aos="zoom-in">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kepala_desa.jpg" alt="Aparatur">
+          </div>
+          <h4>ANUGRAH ELAN S.</h4>
+          <p>Kepala Desa</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/sekretaris.jpg" alt="Aparatur">
+          </div>
+          <h4>SUGENG SUKIRMAN, S.Kom</h4>
+          <p>Sekretaris Desa</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kasi_pemerintahan.jpg" alt="Aparatur">
+          </div>
+          <h4>JUNIATI</h4>
+          <p>Kasi Pemerintahan</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kasi_kesejahteraan.jpg" alt="Aparatur">
+          </div>
+          <h4>TUKHADI</h4>
+          <p>Kasi Kesejahteraan</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kasi_pelayanan.jpg" alt="Aparatur">
+          </div>
+          <h4>JUWARIYAH</h4>
+          <p>Kasi Pelayanan</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kasi_perencanaan.jpg" alt="Aparatur">
+          </div>
+          <h4>INDAH PRASETYOWATI</h4>
+          <p>Kasi Perencanaan</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kaur_keuangan.jpg" alt="Aparatur">
+          </div>
+          <h4>NIRAN</h4>
+          <p>Kaur Keuangan</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kadus1.jpg" alt="Aparatur">
+          </div>
+          <h4>TAUFAN PERMANA, S.Pd, MM</h4>
+          <p>Kadus 1</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kadus2.jpg" alt="Aparatur">
+          </div>
+          <h4>SARWADI</h4>
+          <p>Kadus 2</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kadus3.jpg" alt="Aparatur">
+          </div>
+          <h4>SUPRIYONO</h4>
+          <p>Kadus 3</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kadus4.jpg" alt="Aparatur">
+          </div>
+          <h4>NIHAD</h4>
+          <p>Kadus 4</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="aparat-profile-card">
+          <div class="card-img-wrapper">
+            <img src="assets/aparatur/kaur_tu.png" alt="Aparatur">
+          </div>
+          <h4>SUPRIYATI, Amd.</h4>
+          <p>Kaur TU DAN Umum</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="see-more-wrapper">
+    <a href="pages/pemerintahan.html" class="link-see-more">
+      Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <div class="dark-green-container">
+    <div class="content-wrapper">
+      
+      <section class="lokasi-block" data-aos="fade-up">
+        <div class="pill-title-left"><span class="pill-btn-white">Lokasi</span></div>
+        <p class="lokasi-subtext">Lokasi/Profilayah. Besaran Keliling Serta Luas Desa Medayu.</p>
+        
+        <div class="map-iframe-box">
+          <iframe src="https://www.google.com/maps?q=Desa+Medayu+Banjarnegara&output=embed" allowfullscreen="" loading="lazy"></iframe>
+          <div class="map-overlay-label">PETA</div>
+        </div>
+        <div class="see-more-wrapper white-link">
+          <a href="pages/profil.html" class="link-see-more">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </section>
+
+      <section class="sejarah-block" data-aos="fade-up">
+        <div class="sejarah-grid">
+          <div class="sejarah-left">
+            <div class="pill-title-left"><span class="pill-btn-white">Sejarah</span></div>
+            <p>Desa Medayu berasal dari kisah turun-temurun di tengah masyarakat tentang keberadaan sosok Putri Ayu purba kala. Berdasarkan kearifan lokal luhur, nama Medayu dipercaya berasal dari penamaan "Ayu".</p>
+            <br>
+            <p>Wilayah ini pada dekade awal mula sejarahnya merupakan kesatuan hamparan sawah pertanian agraris dan kehutanan produktif, yang lambat laun bertransformasi dinamis menjadi pusat pemukiman desa yang mandiri.</p>
+          </div>
+          <div class="sejarah-right">
+            <div class="gradient-bg-box">
+              <img src="assets/img/sejarah1.png" alt="Sejarah Desa Medayu">
+            </div>
+          </div>
+        </div>
+        <div class="see-more-wrapper white-link">
+          <a href="pages/profil.html" class="link-see-more">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <section class="monografi-section" data-aos="fade-up">
+      <div class="pill-title-left"><span class="pill-btn-green">Data Monografi</span></div>
+      <h2 class="chart-main-title">Jumlah dan Persentase Penduduk Menurut Jenis Kelamin di Desa Medayu, 2026</h2>
+      
+      <div class="charts-flex-row">
+        <div class="chart-box-card pie-container">
+          <canvas id="genderPieChart"></canvas>
+        </div>
+        <div class="chart-box-card bar-container">
+          <canvas id="genderBarChart"></canvas>
+        </div>
+      </div>
+
+      <h3 class="table-title">Tabel Jenis Kelamin</h3>
+      <div class="table-responsive-box">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kelamin</th>
+              <th>Jumlah</th>
+              <th>Persentase (%)</th>
+              <th>Laki-Laki</th>
+              <th>%</th>
+              <th>Perempuan</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Masyarakat</td>
+              <td>1.784</td>
+              <td>50.7%</td>
+              <td>1.784</td>
+              <td>100%</td>
+              <td>0</td>
+              <td>0%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Sekretaris</td>
+              <td>1.734</td>
+              <td>49.3%</td>
+              <td>0</td>
+              <td>0%</td>
+              <td>1.734</td>
+              <td>100%</td>
+            </tr>
+            <tr class="row-total">
+              <td colspan="2">Total</td>
+              <td>3.518</td>
+              <td>100%</td>
+              <td>1.784</td>
+              <td>50.7%</td>
+              <td>1.734</td>
+              <td>49.3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="see-more-wrapper">
+        <a href="pages/data.html" class="link-see-more">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section class="seksi-apbdes" data-aos="fade-up">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+    
+    <h2 style="color: #062b16; font-weight: 600; text-align: center; margin-bottom: 5px;">
+      Transparansi APBDes 2025
+    </h2>
+    <p style="color: #555555; text-align: center; margin-top: 0; margin-bottom: 30px;">
+      Anggaran Pendapatan dan Belanja Desa Medayu Tahun Anggaran 2025
+    </p>
+
+    <div class="grid-apbdes">
+      <div class="card-apbdes">
+        <h3><i class="fa-solid fa-wallet" style="color: #0b7a3d;"></i> Pendapatan Desa</h3>
+        <div class="nilai-ang">Rp 1.671.428.000</div>
+        <div class="bar-progress-container">
+          <div class="bar-progress" style="width: 100%;"></div> </div>
+        <div class="sub-detail-apbdes">
+          <span>Target Murni</span>
+          <strong>100%</strong>
+        </div>
+      </div>
+
+      <div class="card-apbdes belanja">
+        <h3><i class="fa-solid fa-cart-shopping" style="color: #d9534f;"></i> Belanja Desa</h3>
+        <div class="nilai-ang">Rp 1.810.121.000</div>
+        <div class="bar-progress-container">
+          <div class="bar-progress" style="width: 10.6%;"></div> </div>
+        <div class="sub-detail-apbdes">
+          <span>Realisasi Berjalan</span>
+          <strong>10.6%</strong>
+        </div>
+      </div>
+
+      <div class="card-apbdes pembiayaan">
+        <h3><i class="fa-solid fa-scale-balanced" style="color: #f0ad4e;"></i> Pembiayaan Desa</h3>
+        <div class="nilai-ang">Rp 154.203.000</div>
+        <div class="bar-progress-container">
+          <div class="bar-progress" style="width: 100%;"></div>
+        </div>
+        <div class="sub-detail-apbdes">
+          <span>Penerimaan Silpa</span>
+          <strong>100%</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="kontainer-grafik-utama">
+  
+  <div class="grup-filter-chart">
+    <button class="btn-filter-chart aktif" id="btnBar" onclick="ubahTipeChart('bar')">Bar</button>
+    <button class="btn-filter-chart" id="btnPie" onclick="ubahTipeChart('pie')">Pie</button>
+  </div>
+
+  <div class="grid-3-kolom-chart">
+    
+    <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="100">
+      <h3>APBDes 2025 Pelaksanaan</h3>
+      <p>Anggaran vs Realisasi</p>
+      <div class="sub-nilai">PENDAPATAN<br>RP 1.671.428.000,00 | Rp 0,00</div>
+      <div class="box-canvas-chart">
+        <canvas id="chartPelaksanaan"></canvas>
+      </div>
+    </div>
+
+    <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="200">
+      <h3>APBDes 2025 Pendapatan</h3>
+      <p>Anggaran vs Realisasi</p>
+      <div class="sub-nilai">Hasil Usaha Desa<br>RP 19.400.000,00 | Rp 0,00</div>
+      <div class="box-canvas-chart">
+        <canvas id="chartPendapatan"></canvas>
+      </div>
+    </div>
+
+    <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="300">
+      <h3>APBDes 2025 Pembelanjaan</h3>
+      <p>Anggaran vs Realisasi</p>
+      <div class="sub-nilai">Bidang Penyelenggaraan Pemerintahan Desa<br>RP 655.050.420,00 | Rp 192.135.037,01</div>
+      <div class="box-canvas-chart">
+        <canvas id="chartPembelanjaan"></canvas>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section class="informasi-section" data-aos="fade-up">
+      <div class="pill-title-left"><span class="pill-btn-green">Informasi</span></div>
+      <span class="sub-title-grey">Berita</span>
+      
+      <div class="news-list-container">
+        <div class="news-horizontal-card">
+          <div class="news-img"><img src="assets/img/berita1.png" alt="Berita"></div>
+          <div class="news-info">
+            <h4>KEGIATAN FORUM MUSYAWARAH ANTAR KOMUNITAS JENIS KELAMIN DI DESA MEDAYU</h4>
+            <p>Acara pertemuan rutin warga dalam rangka sinkronisasi data kependudukan dan validasi berkas jaminan sosial...</p>
+          </div>
+        </div>
+        <div class="news-horizontal-card">
+          <div class="news-img"><img src="assets/img/berita2.png" alt="Berita"></div>
+          <div class="news-info">
+            <h4>REKOMENDASI DAN EVALUASI KINERJA APARATUR DESA DALAM PELAYANAN ADMISTRASI</h4>
+            <p>Peningkatan mutu sistem digitalisasi surat menyurat demi memberikan kepuasan pelayanan maksimal bagi warga...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="triple-mini-charts-row">
+        <div class="mini-chart-item">
+          <h5>Data Monografi</h5>
+          <div class="mini-canvas-holder"><canvas id="miniChart1"></canvas></div>
+        </div>
+        <div class="mini-chart-item">
+          <h5>Data Monografi</h5>
+          <div class="mini-canvas-holder"><canvas id="miniChart2"></canvas></div>
+        </div>
+        <div class="mini-chart-item">
+          <h5>Data Monografi</h5>
+          <div class="mini-canvas-holder"><canvas id="miniChart3"></canvas></div>
+        </div>
+      </div>
+
+      <div class="see-more-wrapper">
+        <a href="pages/informasi.html" class="link-see-more">Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </div>
+
+  <footer id="main-footer">
+    <div class="footer-grid-box">
+      <div class="footer-desc-col">
+        <div class="logo-foot">
+          <img src="assets/logo.png" alt="Logo">
+          <div>
+            <h3>DESA MEDAYU</h3>
+            <p>Pemerintah Provinsi Jawa Tengah</p>
+          </div>
+        </div>
+        <p class="foot-text">Website resmi penyedia data kependudukan, transparansi anggaran, sistem pelayanan mandiri dan informasi aktual Desa Medayu, Kecamatan Wanadadi, Banjarnegara.</p>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Tautan Cepat</h4>
+        <a href="#">Beranda</a>
+        <a href="profil.html">Profil Desa</a>
+        <a href="pemerintahan.html">Pemerintahan</a>
+        <a href="data.html">Data Monografi</a>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Kontak Resmi</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Desa Medayu, Banjarnegara</p>
+        <p><i class="fa fa-envelope"></i> desamedayu@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom-bar">
+      <p>© 2026 Pemerintah Desa Medayu. All Rights Reserved.</p>
+      <div class="foot-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/#" class="floating-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

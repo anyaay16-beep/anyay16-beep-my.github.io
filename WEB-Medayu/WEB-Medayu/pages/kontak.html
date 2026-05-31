@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak & Layanan Pengaduan Masyarakat</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-content">
+      <img src="../assets/logo.png" alt="Logo Desa">
+      <h2>DESA MEDAYU</h2>
+      <div class="loading"></div>
+    </div>
+  </div>
+
+  <nav id="navbar" style="background: #062b16;">
+  <div class="logo">
+    <img src="../assets/logo.png" alt="Logo">
+    <div>
+      <h2>DESA MEDAYU</h2>
+      <span>Kab. Banjarnegara</span>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="../index.html">Beranda</a></li>
+    
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="pemerintahan.html">Pemerintahan</a></li>
+    <li><a href="data.html">Data Monografi</a></li>
+    <li><a href="informasi.html">Informasi</a></li>
+    <li><a href="kontak.html" class="active">Kontak</a></li>
+  </ul>
+
+  <div class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+  <div style="height: 75px; background: #062b16;"></div>
+
+  <main class="content-kontak" style="padding: 60px 0; background-color: #eef7f2;">
+    
+    <div class="center-pill-title" data-aos="fade-up">
+      <span class="pill-btn-green">Kontak Dan Layanan Pengaduan Masyarakat</span>
+    </div>
+
+  <main class="seksi-kontak-layanan" style="padding: 60px 0; background-color: #eef7f2;">
+    <div class="container-kontak" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 4%;">
+      
+      <div class="grid-kontak-modern" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch;">
+        
+        <div class="kartu-modern-kontak info-kontak-kiri" data-aos="fade-right" style="background: #ffffff; padding: 45px; border-radius: 28px; box-shadow: 0 10px 30px rgba(6, 43, 22, 0.03); box-sizing: border-box;">
+          
+          <div class="grup-info-item" style="margin-bottom: 35px;">
+            <h2 style="font-size: 28px; font-weight: 600; color: #062b16; margin-bottom: 12px; display: flex; align-items: center; gap: 14px;">
+              <i class="fa-solid fa-location-dot"></i> Alamat
+            </h2>
+            <p style="font-size: 15px; color: #555555; line-height: 1.6;">Kecamatan Wanadadi, Kabupaten Banjarnegara</p>
+          </div>
+
+          <div class="grup-info-item" style="margin-bottom: 35px;">
+            <h2 style="font-size: 28px; font-weight: 600; color: #062b16; margin-bottom: 12px; display: flex; align-items: center; gap: 14px;">
+              <i class="fa-solid fa-envelope"></i> Email
+            </h2>
+            <p style="font-size: 15px; color: #555555; line-height: 1.6;">
+              <a href="mailto:desamedayu@gmail.com" style="color: #555555; text-decoration: none;">desamedayu@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="grup-info-item" style="margin-bottom: 0;">
+            <h2 style="font-size: 28px; font-weight: 600; color: #062b16; margin-bottom: 12px; display: flex; align-items: center; gap: 14px;">
+              <i class="fa-solid fa-phone"></i> Telepon
+            </h2>
+            <p style="font-size: 15px; color: #555555; line-height: 1.6;">+62 856-7480-****</p>
+          </div>
+
+        </div>
+
+        <div class="kartu-modern-kontak form-pengaduan-kanan" data-aos="fade-left" style="background: #ffffff; padding: 45px; border-radius: 28px; box-shadow: 0 10px 30px rgba(6, 43, 22, 0.03); box-sizing: border-box;">
+          <h2 style="font-size: 28px; font-weight: 600; color: #062b16; margin-bottom: 12px; display: flex; align-items: center; gap: 14px;">
+            <i class="fa-solid fa-circle-info"></i> Pengaduan
+          </h2>
+          
+          <form onsubmit="return false" class="form-layanan-desa" style="margin-top: 25px;">
+            
+            <div class="grup-input-modern" style="margin-bottom: 20px;">
+              <label for="nama_pengirim" style="display: block; font-size: 14px; font-weight: 500; color: #062b16; margin-bottom: 8px;">Nama</label>
+              <input type="text" id="nama_pengirim" placeholder="Tulis nama" required 
+                     style="width: 100%; padding: 14px 20px; background: #ffffff; border: 1px solid #e0ebf0; border-radius: 10px; font-size: 14px; color: #333333; outline: none; box-sizing: border-box;" />
+            </div>
+            
+            <div class="grup-input-modern" style="margin-bottom: 20px;">
+              <label for="email_pengirim" style="display: block; font-size: 14px; font-weight: 500; color: #062b16; margin-bottom: 8px;">E-mail</label>
+              <input type="email" id="email_pengirim" placeholder="Maukan E-mail anda" required 
+                     style="width: 100%; padding: 14px 20px; background: #ffffff; border: 1px solid #e0ebf0; border-radius: 10px; font-size: 14px; color: #333333; outline: none; box-sizing: border-box;" />
+            </div>
+            
+            <div class="grup-input-modern" style="margin-bottom: 20px;">
+              <label for="pesan_pengaduan" style="display: block; font-size: 14px; font-weight: 500; color: #062b16; margin-bottom: 8px;">Pesan</label>
+              <textarea id="pesan_pengaduan" rows="4" placeholder="Sampaikan pengaduan" required 
+                        style="width: 100%; padding: 14px 20px; background: #ffffff; border: 1px solid #e0ebf0; border-radius: 10px; font-size: 14px; color: #333333; outline: none; resize: vertical; box-sizing: border-box;"></textarea>
+            </div>
+            
+            <button class="btn-kirim-hijau" type="button" onclick="alert('Form demo - Pengaduan Berhasil Terkirim')"
+                    style="background: #0b7a3d; color: #ffffff; padding: 12px 30px; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.3s ease;">
+              Kirim
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+<footer id="main-footer">
+    <div class="footer-grid-box">
+      <div class="footer-desc-col">
+        <div class="logo-foot">
+          <img src="../assets/logo.png" alt="Logo">
+          <div>
+            <h3>DESA MEDAYU</h3>
+            <p>Pemerintah Provinsi Jawa Tengah</p>
+          </div>
+        </div>
+        <p class="foot-text">Website resmi penyedia data kependudukan, transparansi anggaran, sistem pelayanan mandiri dan informasi aktual Desa Medayu, Kecamatan Wanadadi, Banjarnegara.</p>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Tautan Cepat</h4>
+        <a href="../index.html">Beranda</a>
+        <a href="profile.html">Profil Desa</a>
+        <a href="pemerintahan.html">Pemerintahan</a>
+        <a href="data.html">Data Monografi</a>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Kontak Resmi</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Desa Medayu, Banjarnegara</p>
+        <p><i class="fa fa-envelope"></i> desamedayu@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom-bar">
+      <p>© 2026 Pemerintah Desa Medayu. All Rights Reserved.</p>
+      <div class="foot-socials">
+        <a href="#_"><i class="fab fa-instagram"></i></a>
+        <a href="#_"><i class="fab fa-facebook"></i></a>
+        <a href="#_"><i class="fab fa-youtube"></i></a>
+        <a href="#_"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/#" class="floating-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <div class="modal-profil-desa" id="modalProfilDesa">
+    <div class="konten-modal-box">
+      <button class="tombol-tutup-modal" onclick="tutupModalProfil()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="konten-modal-html" id="isiKontenModal">
+        </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

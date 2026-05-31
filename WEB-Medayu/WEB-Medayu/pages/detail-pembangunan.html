@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Pembangunan - Desa Medayu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f4f7f5; margin: 0; padding: 20px; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
+    .btn-kembali { display: inline-block; padding: 10px 20px; background: #2e6b4d; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500; margin-bottom: 25px; transition: 0.3s; }
+    .btn-kembali:hover { background: #1f4a35; }
+    h2 { color: #062b16; font-weight: 600; font-size: 18px; margin-bottom: 25px; border-bottom: 2px solid #2e6b4d; padding-bottom: 12px; text-transform: uppercase; }
+    
+    .grid-main { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; }
+    @media (max-width: 992px) { .grid-main { grid-template-columns: 1fr; } }
+    
+    .box-pembangunan { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+    .box-title { background: #eef7f2; color: #2e6b4d; padding: 12px 15px; font-weight: 600; font-size: 14px; margin: 0; border-bottom: 1px solid #e2e8f0; }
+    .main-img { width: 100%; height: 350px; object-fit: cover; display: block; }
+    
+    table { width: 100%; border-collapse: collapse; }
+    table tr:last-child td { border-bottom: none; }
+    table td { padding: 14px 15px; font-size: 13px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    table td:first-child { font-weight: 600; color: #475569; width: 30%; background: #f8fafc; }
+    
+    .grid-progres { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px; }
+    .progres-item { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; background: #f8fafc; text-align: center; }
+    .progres-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .progres-text { font-size: 12px; font-weight: 600; color: #475569; padding: 10px 0; background: #fff; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="javascript:history.back()" class="btn-kembali"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+    <h2 id="judul-page">DETAIL PEMBANGUNAN</h2>
+
+    <div class="grid-main">
+      <div>
+        <div class="box-pembangunan">
+          <p class="box-title">Data Pembangunan</p>
+          <img id="foto-utama" src="" alt="Foto Utama" class="main-img">
+          <table>
+            <tr><td>Nama Kegiatan</td><td><span id="val-kegiatan"></span></td></tr>
+            <tr>
+              <td>Alamat</td>
+              <td>
+                <span id="val-alamat"></span>
+                <div id="map-container" style="margin-top: 15px; border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; display: none;">
+                  <iframe id="google-map-iframe" src="" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              </td>
+            </tr>
+            <tr><td>Sumber Dana</td><td><span id="val-dana"></span></td></tr>
+            <tr><td>Anggaran</td><td><span id="val-anggaran"></span></td></tr>
+            <tr><td>Volume</td><td><span id="val-volume"></span></td></tr>
+            <tr><td>Pelaksana</td><td><span id="val-pelaksana"></span></td></tr>
+            <tr><td>Tahun</td><td><span id="val-tahun"></span></td></tr>
+            <tr><td>Keterangan</td><td><span id="val-keterangan">-</span></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="box-pembangunan">
+          <p class="box-title">Progres Fisik Konstruksi</p>
+          <div class="grid-progres">
+            <div class="progres-item">
+              <img id="foto-0" src="" alt="Progres 0%">
+              <div class="progres-text">Foto Pembangunan 0%</div>
+            </div>
+            <div class="progres-item">
+              <img id="foto-50" src="" alt="Progres 50%">
+              <div class="progres-text">Foto Pembangunan 50%</div>
+            </div>
+            <div class="progres-item">
+              <img id="foto-100" src="" alt="Progres 100%">
+              <div class="progres-text">Foto Pembangunan 100%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Kamus Database Riil Proyek Infrastruktur Desa Medayu
+    const dataPembangunanLengkap = {
+      "drainase-talunrata": {
+        judul: "PEMBANGUNAN DRAINASE RT 5 RW 4 DUKUH TALUNRATA",
+        alamat: "Dukuh Talunrata RT 05 RW IV, Desa Medayu, Kec. Wanadadi",
+        mapUrl: "https://maps.google.com/maps?q=Desa%20Medayu%20Wanadadi&t=&z=13&ie=UTF8&iwloc=&output=embed",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 113.318.500,00",
+        volume: "103,85 M",
+        pelaksana: "TPK Desa Medayu",
+        tahun: "2025",
+        fotoUtama: "talunrata.webp",
+        foto0: "talunrata0.webp",
+        foto50: "talunrata50.webp",
+        foto100: "talunrata100.webp"
+      },
+      "plat-rt7": {
+        judul: "PEMBANGUNAN PLAT BETON DAN TALUD JALAN RT 7 RW IV",
+        alamat: "RT 07 RW IV Desa Medayu, Kec. Wanadadi, Kab. Banjarnegara",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 144.512.000,00",
+        volume: "1 Paket",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "talud.jpeg",
+        foto0: "talud0.jpg",
+        foto50: "talud50.jpg",
+        foto100: "talud100.jpg"
+      },
+      "plat-rt1": {
+        judul: "PEMBANGUNAN PLAT BETON & SENDERAN JL. RT 01 RW IV",
+        alamat: "RT 01 RW IV Dusun Dengok, Desa Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 87.420.000,00",
+        volume: "1 Paket Kerja",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "senderan.png",
+        foto0: "senderan0.png",
+        foto50: "senderan50.png",
+        foto8100: "senderan100.png"
+      },
+      "aspal-desa": {
+        judul: "PENGASPALAN JALAN UTAMA DESA MEDAYU",
+        alamat: "Jalan Poros Utama RT 01 RW 03, Desa Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 210.500.000,00",
+        volume: "1 Paket Hotmix",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "aspal.jpg",
+        foto0: "aspal0.jpg",
+        foto50: "aspal50.jpg",
+        foto100: "aspal100.jpg"
+      },
+      "jut-jembangan": {
+        judul: "PEMBANGUNAN JALAN USAHA TANI (JUT) BLOK JEMBANGAN",
+        alamat: "Blok Jembangan RT 02 RW 03, Desa Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 125.000.000,00",
+        volume: "1 Paket Pertanian",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "tani.jpg",
+        foto0: "tani0.jpg",
+        foto50: "tani50.jpg",
+        foto100: "tani100.jpg"
+      },
+      "talud-jalan": {
+        judul: "PEMBANGUNAN TALUD DAN SENDERAN JALAN",
+        alamat: "Bahu Jalan RT 03 RW 03, Desa Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 95.000.000,00",
+        volume: "1 Paket Struktur",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "talud.jpeg",
+        foto0: "talud0.jpeg",
+        foto50: "talud50.jpeg",
+        foto100: "talud100.jpeg"
+      },
+      "jambanisasi": {
+        judul: "PEMBANGUNAN JAMBANISASI RT 01 RW 03",
+        alamat: "Lingkungan Saniter RT 01 RW 03, Desa Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 45.000.000,00",
+        volume: "5 Unit KPM",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "rw1.jpeg",
+        foto0: "rw10.jpg",
+        foto50: "rw150.jpg",
+        foto100: "rw1100.jpg" 
+      },
+      "rehab-jalan": {
+        judul: "REHABILITASI JALAN DESA KARANGKOBAR DENGOK",
+        alamat: "Ruas Jalan Lingkungan Dusun Karangkobar Dengok, Medayu",
+        mapUrl: "",
+        sumber: "Pendapatan Transfer (Dana Desa)",
+        anggaran: "Rp 110.000.000,00",
+        volume: "1 Paket Perbaikan",
+        pelaksana: "TPK",
+        tahun: "2024",
+        fotoUtama: "karangkobar.png",
+        foto0: "karangkobar0.jpg",
+        foto50: "karangkobar50.jpg",
+        foto100: "karangkobar100.jpg" 
+      }
+    };
+
+    // Ekstraksi ID dari parameter URL browser (?id=...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const idProyek = urlParams.get('id');
+
+    // Menghubungkan database ke elemen interface HTML
+    if (idProyek && dataPembangunanLengkap[idProyek]) {
+      const p = dataPembangunanLengkap[idProyek];
+      
+      document.getElementById('judul-page').innerText = "DETAIL " + p.judul;
+      document.getElementById('val-kegiatan').innerText = p.judul;
+      document.getElementById('val-alamat').innerText = p.alamat;
+      document.getElementById('val-dana').innerText = p.sumber;
+      document.getElementById('val-anggaran').innerText = p.anggaran;
+      document.getElementById('val-volume').innerText = p.volume;
+      document.getElementById('val-pelaksana').innerText = p.pelaksana;
+      document.getElementById('val-tahun').innerText = p.tahun;
+      
+      // Deteksi otomatis folder root maupun subfolder
+      let jalurFolder = "assets/img/"; 
+      if (window.location.pathname.includes('/pages/') || window.location.pathname.includes('/profil/')) {
+        jalurFolder = "../assets/img/";
+      }
+
+      // Memasukkan file gambar lokal secara aman
+      if(p.fotoUtama) document.getElementById('foto-utama').src = jalurFolder + p.fotoUtama;
+      if(p.foto0) document.getElementById('foto-0').src = jalurFolder + p.foto0;
+      if(p.foto50) document.getElementById('foto-50').src = jalurFolder + p.foto50;
+      if(p.foto100) document.getElementById('foto-100').src = jalurFolder + p.foto100;
+
+      // Logika Penempatan Peta Google Maps Terintegrasi
+      if (p.mapUrl && p.mapUrl.trim() !== "") {
+        document.getElementById('google-map-iframe').src = p.mapUrl;
+        document.getElementById('map-container').style.display = 'block';
+      } else {
+        document.getElementById('map-container').style.display = 'none';
+      }
+    } else {
+      document.body.innerHTML = "<div class='container' style='text-align:center; padding:100px 20px;'><h3 style='color:#dc2626;'>Data rincian laporan pembangunan tidak ditemukan.</h3><br><p style='color:#666;'>Pastikan Anda membuka halaman ini melalui tautan link list proyek (Contoh: detail.html?id=aspal-desa)</p><br><a href='javascript:history.back()' class='btn-kembali'>Kembali ke Halaman</a></div>";
+    }
+  </script>
+</body>
+</html>

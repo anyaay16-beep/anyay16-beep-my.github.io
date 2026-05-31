@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-content">
+      <img src="../assets/logo.png" alt="Logo Desa">
+      <h2>DESA MEDAYU</h2>
+      <div class="loading"></div>
+    </div>
+  </div>
+
+  <nav id="navbar" style="background: #062b16;">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Logo">
+      <div>
+        <h2>DESA MEDAYU</h2>
+        <span>Kab. Banjarnegara</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="pemerintahan.html">Pemerintahan</a></li>
+      <li><a href="data.html">Data Monografi</a></li>
+      <li><a href="informasi.html" class="active">Informasi</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+    <div class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+  <div style="height: 75px; background: #062b16;"></div>
+
+  <main class="content-wrapper">
+    
+    <div class="center-pill-title" data-aos="fade-up">
+      <span class="pill-btn-green">Informasi Masyarakat</span>
+    </div>
+
+    <section class="seksi-apbdes" style="background: transparent; padding-top: 20px;">
+      <h2 style="color: #062b16; font-weight: 600; text-align: center; margin-bottom: 5px;" data-aos="fade-down">
+        Rincian Pembelanjaan Desa
+      </h2>
+      <p style="color: #555555; text-align: center; margin-top: 0; margin-bottom: 30px;" data-aos="fade-down">
+        Alokasi Anggaran Belanja Berdasarkan Sektor Kerja Medayu 2025
+      </p>
+
+      <div style="background: #ffffff; padding: 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.03); overflow-x: auto;" data-aos="fade-up">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: 'Poppins', sans-serif; font-size: 14px;">
+          <thead>
+            <tr style="background: #062b16; color: #ffffff;">
+              <th style="padding: 12px 15px; border-radius: 10px 0 0 10px;">Bidang / Sektor Pembelanjaan</th>
+              <th style="padding: 12px 15px; text-align: right; border-radius: 0 10px 10px 0;">Pagu Anggaran (Rp)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #eeeeee;">
+              <td style="padding: 12px 15px; color: #333;">Bidang Penyelenggaran Pemerintahan Desa</td>
+              <td style="padding: 12px 15px; text-align: right; font-weight: 600; color: #0b7a3d;">655.050.420</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eeeeee; background: #fbfdfc;">
+              <td style="padding: 12px 15px; color: #333;">Bidang Pelaksanaan Pembangunan Desa</td>
+              <td style="padding: 12px 15px; text-align: right; font-weight: 600; color: #0b7a3d;">794.468.400</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eeeeee;">
+              <td style="padding: 12px 15px; color: #333;">Bidang Pembinaan Kemasyarakatan Desa</td>
+              <td style="padding: 12px 15px; text-align: right; font-weight: 600; color: #0b7a3d;">77.365.000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eeeeee; background: #fbfdfc;">
+              <td style="padding: 12px 15px; color: #333;">Bidang Pemberdayaan Masyarakat Desa</td>
+              <td style="padding: 12px 15px; text-align: right; font-weight: 600; color: #0b7a3d;">188.609.000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #062b16;">
+              <td style="padding: 12px 15px; color: #333;">Bidang Penanggulangan Bencana, Darurat & Mendesak</td>
+              <td style="padding: 12px 15px; text-align: right; font-weight: 600; color: #0b7a3d;">94.628.180</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="kontainer-grafik-utama" style="padding-top: 40px;">
+      <div class="grup-filter-chart">
+        <button class="btn-filter-chart aktif" id="btnBar" onclick="ubahTipeChart('bar')">Bar</button>
+        <button class="btn-filter-chart" id="btnPie" onclick="ubahTipeChart('pie')">Pie</button>
+      </div>
+
+      <div class="grid-3-kolom-chart">
+        <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="100">
+          <h3>APBDes 2025 Pelaksanaan</h3>
+          <p>Anggaran vs Realisasi</p>
+          <div class="sub-nilai">PENDAPATAN<br>RP 1.671.428.000,00 | Rp 0,00</div>
+          <div class="box-canvas-chart">
+            <canvas id="chartPelaksanaan"></canvas>
+          </div>
+        </div>
+
+        <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="200">
+          <h3>APBDes 2025 Pendapatan</h3>
+          <p>Anggaran vs Realisasi</p>
+          <div class="sub-nilai">Hasil Usaha Desa<br>RP 19.400.000,00 | Rp 0,00</div>
+          <div class="box-canvas-chart">
+            <canvas id="chartPendapatan"></canvas>
+          </div>
+        </div>
+
+        <div class="item-chart-slide" data-aos="fade-up" data-aos-delay="300">
+          <h3>APBDes 2025 Pembelanjaan</h3>
+          <p>Anggaran vs Realisasi</p>
+          <div class="sub-nilai">Bidang Penyelenggaraan Pemerintahan Desa<br>RP 655.050.420,00 | Rp 192.135.037,01</div>
+          <div class="box-canvas-chart">
+            <canvas id="chartPembelanjaan"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seksi-berita-desa" style="padding: 60px 0; font-family: 'Poppins', sans-serif;">
+      <h2 style="color: #062b16; font-weight: 600; text-align: center; margin-bottom: 5px;" data-aos="fade-down">
+        Kabar Berita Terkini
+      </h2>
+      <p style="color: #555555; text-align: center; margin-top: 0; margin-bottom: 40px;" data-aos="fade-down">
+        Pantau Informasi dan Perkembangan Program Kegiatan di Desa Medayu
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 20px;">
+        
+        <div class="kartu-profil-item" data-aos="fade-up" data-aos-delay="100" onclick="bukaModalBerita('berita1')">
+          <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 180px;">
+            <img src="../assets/galeri/berita3.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Akses Jalan Tani">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; margin-bottom: 10px;">
+            <span><i class="fa-solid fa-calendar-days"></i> 24 Mei 2026</span>
+            <div style="width: 45px; height: 25px;"><canvas id="miniChart1"></canvas></div>
+          </div>
+          <h3>Pembangunan Akses Jalan Pertanian Dusun Kayunan Rampung Selesai</h3>
+          <p>Pemerintah Desa Medayu telah menyelesaikan proyek pengaspalan dan beton jalan usaha tani sepanjang 450 meter di wilayah Dusun Kayunan...</p>
+          <div class="btn-baca-profil">
+            Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="kartu-profil-item" data-aos="fade-up" data-aos-delay="200" onclick="bukaModalBerita('berita2')">
+          <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 180px;">
+            <img src="../assets/galeri/berita2.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Pelatihan UMKM">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; margin-bottom: 10px;">
+            <span><i class="fa-solid fa-calendar-days"></i> 18 April 2026</span>
+            <div style="width: 45px; height: 25px;"><canvas id="miniChart2"></canvas></div>
+          </div>
+          <h3>Pelatihan Digitalisasi UMKM Kreatif Pemuda Desa Medayu</h3>
+          <p>Dalam rangka menyambut Bonus Demografi dan memperkuat ekonomi kreatif, sekelompok pemuda di Desa Medayu mengikuti sosialisasi pemanfaatan e-commerce...</p>
+          <div class="btn-baca-profil">
+            Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="kartu-profil-item" data-aos="fade-up" data-aos-delay="300" onclick="bukaModalBerita('berita3')">
+          <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 180px;">
+            <img src="../assets/galeri/berita1.jpeg" style="width: 100%; height: 100%; object-fit: cover;" alt="Sembako Lansia">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; margin-bottom: 10px;">
+            <span><i class="fa-solid fa-calendar-days"></i> 05 April 2026</span>
+            <div style="width: 45px; height: 25px;"><canvas id="miniChart3"></canvas></div>
+          </div>
+          <h3>Penyaluran Bantuan Sembako Berkala Bagi Warga Lansia</h3>
+          <p>Pemerintah Desa Medayu kembali menyalurkan paket bantuan pangan sehat kepada puluhan warga lanjut usia (lansia) kurang mampu yang tersebar...</p>
+          <div class="btn-baca-profil">
+            Selengkapnya <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+ <section style="padding: 60px 5%; background: #f9f9f9;">
+  <div class="content-wrapper">
+    <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark-green);">Lapak UMKM Desa Medayu</h2>
+    
+    <div class="umkm-grid" id="umkmGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      
+      <div class="aparat-profile-card">
+        <img src="../assets/galeri/produk1.png" style="height:150px; object-fit:cover; border-radius:10px;">
+        <h4 style="margin: 10px 0 5px;">Sale Pisang</h4>
+        <p style="color: var(--primary); font-weight:600;">Rp 45.000</p>
+      </div>
+      
+      <div class="aparat-profile-card">
+        <img src="../assets/galeri/produk2.png" style="height:150px; object-fit:cover; border-radius:10px;">
+        <h4 style="margin: 10px 0 5px;">Super Rengginan</h4>
+        <p style="color: var(--primary); font-weight:600;">Rp 25.000</p>
+      </div>
+
+      <div class="aparat-profile-card">
+        <img src="../assets/galeri/produk3.png" style="height:150px; object-fit:cover; border-radius:10px;">
+        <h4 style="margin: 10px 0 5px;">Jenang Tape</h4>
+        <p style="color: var(--primary); font-weight:600;">Rp 25.000</p>
+      </div>
+
+      <div class="aparat-profile-card">
+        <img src="../assets/galeri/produk4.png" style="height:150px; object-fit:cover; border-radius:10px;">
+        <h4 style="margin: 10px 0 5px;">Telor Gabus</h4>
+        <p style="color: var(--primary); font-weight:600;">Rp 17.000</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+      <div style="text-align: center; margin-top: 40px;">
+        <button onclick="bukaFormTambah()" class="btn-primary" style="padding: 15px 30px; background: var(--dark-green); color: white; border: none; border-radius: 30px; cursor: pointer;">
+          <i class="fa fa-plus"></i> Daftarkan Produk Anda
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div id="modalBerita" class="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; padding:20px; overflow-y:auto;">
+    <div style="background:white; max-width:700px; margin:50px auto; padding:30px; border-radius:20px; position:relative;">
+      <span onclick="tutupModalBerita()" style="position:absolute; top:20px; right:20px; cursor:pointer; font-size:24px;">&times;</span>
+      <img id="modalImg" style="width:100%; border-radius:15px;">
+      <h2 id="modalJudul" style="margin: 20px 0;"></h2>
+      <div id="modalIsi"></div>
+    </div>
+  </div>
+
+  <div id="modalTambah" class="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; padding:20px;">
+    <div style="background:white; max-width:500px; margin:10% auto; padding:30px; border-radius:20px;">
+      <h3>Tambah Produk UMKM</h3>
+      <form id="formProduk" style="margin-top:20px;">
+        <input type="text" placeholder="Nama Produk" style="width:100%; padding:10px; margin-bottom:10px;">
+        <textarea placeholder="Deskripsi Produk" style="width:100%; padding:10px; margin-bottom:10px;"></textarea>
+        <button type="button" onclick="kirimProduk()" style="width:100%; padding:10px; background:var(--primary); color:white; border:none; cursor:pointer;">Kirim ke Admin</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+
+  <section class="seksi-berita-desa" style="padding: 60px 0; font-family: 'Poppins', sans-serif;">
+  <h2 style="color: #062b16; font-weight: 600; text-align: center; margin-bottom: 5px;" data-aos="fade-down">
+    Laporan Pelaksanaan Pembangunan Desa
+  </h2>
+  <p style="color: #555555; text-align: center; margin-top: 0; margin-bottom: 40px;" data-aos="fade-down">
+    Arsip Transparansi Progress Proyek Fisik Infrastruktur Resmi Desa Medayu
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; padding: 0 20px;">
+    
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/talunrata.webp" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Drainase RT 5 RW 4 Dukuh Talunrata</h3>
+        <p style="font-size:13px; color:#666;">Pagu Anggaran Rp 113.318.500,00 bersumber dari Pendapatan Transfer Dana Desa.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=drainase-talunrata" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/talud.jpeg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Plat Beton dan Talud Jalan RT 7 RW IV</h3>
+        <p style="font-size:13px; color:#666;">Proyek pengerasan jalan dan pembuatan dinding talud penahan longsor.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=plat-rt7" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/rw1.jpeg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Plat Beton & Senderan Jl. RT 01 RW IV</h3>
+        <p style="font-size:13px; color:#666;">Peningkatan mutu jalan cor beton prasarana lingkungan pemukiman warga.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=plat-rt1" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/aspal.jpg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pengaspalan Jalan Utama Desa Medayu</h3>
+        <p style="font-size:13px; color:#666;">Pekerjaan aspal hotmiks penghubung antar-RT dusun wilayah RW 03.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=aspal-desa" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/tani.jpg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Jalan Usaha Tani Blok Jembangan</h3>
+        <p style="font-size:13px; color:#666;">Akses jalan pengerasan area pertanian sawah utama RT 02 RW 03.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=jut-jembangan" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/senderan.png" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Talud dan Senderan Jalan</h3>
+        <p style="font-size:13px; color:#666;">Konstruksi talud pengaman bahu jalan lingkungan dari ancaman kikisan abrasi.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=talud-jalan" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/jamban.png" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Pembangunan Jambanisasi RT 01 RW 03</h3>
+        <p style="font-size:13px; color:#666;">Bantuan stimulan pembuatan septik tank sehat standar KPM pemukiman.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=jambanisasi" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+    <div class="kartu-profil-item" data-aos="fade-up" style="background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,0.05); display:flex; flex-direction:column; justify-content:space-between; min-height:420px;">
+      <div>
+        <div style="position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 15px; height: 160px;">
+          <img src="../assets/img/karangkobar.png" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h3 style="font-size:16px; color:#062b16; min-height:44px;">Rehabilitasi Jalan Desa Karangkobar Dengok</h3>
+        <p style="font-size:13px; color:#666;">Perbaikan titik kerusakan patching lubang aspal aus poros Karangkobar.</p>
+      </div>
+      <a href="detail-pembangunan.html?id=rehab-jalan" style="display:block; text-align:center; background:#2e6b4d; color:#fff; padding:10px; border-radius:8px; text-decoration:none;">Selengkapnya</a>
+    </div>
+
+  </div>
+</section>
+
+
+  <footer id="main-footer">
+    <div class="footer-grid-box">
+      <div class="footer-desc-col">
+        <div class="logo-foot">
+          <img src="../assets/logo.png" alt="Logo">
+          <div>
+            <h3>DESA MEDAYU</h3>
+            <p>Pemerintah Provinsi Jawa Tengah</p>
+          </div>
+        </div>
+        <p class="foot-text">Website resmi penyedia data kependudukan, transparansi anggaran, sistem pelayanan mandiri dan informasi aktual Desa Medayu, Kecamatan Wanadadi, Banjarnegara.</p>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Tautan Cepat</h4>
+        <a href="../index.html">Beranda</a>
+        <a href="profile.html">Profil Desa</a>
+        <a href="pemerintahan.html">Pemerintahan</a>
+        <a href="data.html">Data Monografi</a>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Kontak Resmi</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Desa Medayu, Banjarnegara</p>
+        <p><i class="fa fa-envelope"></i> desamedayu@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom-bar">
+      <p>© 2026 Pemerintah Desa Medayu. All Rights Reserved.</p>
+      <div class="foot-socials">
+        <a href="#_"><i class="fab fa-instagram"></i></a>
+        <a href="#_"><i class="fab fa-facebook"></i></a>
+        <a href="#_"><i class="fab fa-youtube"></i></a>
+        <a href="#_"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/#" class="floating-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <div class="modal-profil-desa" id="modalProfilDesa">
+    <div class="konten-modal-box">
+      <button class="tombol-tutup-modal" onclick="tutupModalProfil()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="konten-modal-html" id="isiKontenModal">
+        </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

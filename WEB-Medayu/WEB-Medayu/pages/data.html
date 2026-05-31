@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Monografi & Statistik - Desa Medayu</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* Styling tambahan untuk visualisasi tabel data kependudukan dinamis */
+    .table-wilayah {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+    .table-wilayah th, .table-statis th {
+      background-color: #0b7a3d;
+      color: white;
+      padding: 12px 10px;
+      text-align: left;
+    }
+    .table-wilayah td, .table-statis td {
+      padding: 10px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .bg-dusun { background-color: #eef7f2; font-weight: 600; color: #062b16; }
+    .bg-rw { background-color: #f8fafc; font-weight: 500; padding-left: 25px !important; color: #1e293b; }
+    .bg-rt { padding-left: 45px !important; color: #475569; }
+    .text-center { text-align: center; }
+    
+    /* Indikator Tombol Menu Aktif */
+    .menu-stat-btn.active {
+      background-color: #0b7a3d !important;
+      color: #fff !important;
+    }
+
+    /* Box Khusus Data Permanen */
+    .permanent-data-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-content">
+      <img src="../assets/logo.png" alt="Logo Desa">
+      <h2>DESA MEDAYU</h2>
+      <div class="loading"></div>
+    </div>
+  </div>
+
+  <nav id="navbar" style="background: #062b16;">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Logo">
+      <div>
+        <h2>DESA MEDAYU</h2>
+        <span>Kab. Banjarnegara</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="pemerintahan.html">Pemerintahan</a></li>
+      <li><a href="data.html" class="active">Data Monografi</a></li>
+      <li><a href="informasi.html">Informasi</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+    <div class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </nav>
+
+  <div style="height: 75px; background: #062b16;"></div>
+
+  <main class="content-wrapper">
+    
+    <div class="center-pill-title" data-aos="fade-up">
+      <span class="pill-btn-green">Data & Statistik</span>
+    </div>
+
+    <!-- Ringkasan Statistik Utama -->
+    <section class="counter-grid" data-aos="fade-up" style="margin-bottom: 40px;">
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+        <span class="count-label">Total Penduduk</span>
+        <h2 class="counter" data-target="3518">0</h2>
+        <span class="count-unit">jiwa</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-user-tie"></i></div>
+        <span class="count-label">Laki-Laki</span>
+        <h2 class="counter" data-target="1784">0</h2>
+        <span class="count-unit">jiwa</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-user-dress"></i></div>
+        <span class="count-label">Perempuan</span>
+        <h2 class="counter" data-target="1734">0</h2>
+        <span class="count-unit">jiwa</span>
+      </div>
+      <div class="count-card">
+        <div class="icon-circle"><i class="fa-solid fa-house"></i></div>
+        <span class="count-label">Kepala Keluarga</span>
+        <h2 class="counter" data-target="1200">0</h2>
+        <span class="count-unit">KK</span>
+      </div>
+    </section>
+
+    <!-- DATA PERMANEN: PENDIDIKAN DALAM KK (Di Luar Tombol) -->
+    <section class="permanent-data-box" data-aos="fade-up">
+      <h2 style="text-align: center; font-size: 1.3rem; color: #062b16; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">
+        <i class="fa-solid fa-graduation-cap" style="color: #0b7a3d; margin-right: 8px;"></i> Komposisi Penduduk Berdasarkan Pendidikan Dalam KK
+      </h2>
+      <p style="text-align: center; color: #666; font-size: 0.95rem; max-width: 800px; margin: 0 auto 25px auto; line-height: 1.6;">
+        Berikut adalah rincian kualifikasi tingkat pendidikan masyarakat Desa Medayu yang tercatat secara resmi di dalam Kartu Keluarga (KK). Mayoritas populasi didominasi oleh tamatan SD/Sederajat.
+      </p>
+      
+      <div style="overflow-x: auto;">
+        <table class="table-statis" style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              <th style="width: 8%;">No</th>
+              <th>Kelompok Pendidikan</th>
+              <th class="text-center" style="width: 25%;">Jumlah (Jiwa)</th>
+              <th class="text-center" style="width: 25%;">Persentase (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td style="font-weight: 500; color: #333;">TIDAK / BELUM SEKOLAH</td><td class="text-center" style="font-weight: 600;">822</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">23.37%</td></tr>
+            <tr><td>2</td><td style="font-weight: 500; color: #333;">BELUM TAMAT SD / SEDERAJAT</td><td class="text-center" style="font-weight: 600;">512</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">14.55%</td></tr>
+            <tr><td>3</td><td style="font-weight: 500; color: #333;">TAMAT SD / SEDERAJAT</td><td class="text-center" style="font-weight: 600;">1.324</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">37.64%</td></tr>
+            <tr><td>4</td><td style="font-weight: 500; color: #333;">SLTP / SEDERAJAT</td><td class="text-center" style="font-weight: 600;">504</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">14.33%</td></tr>
+            <tr><td>5</td><td style="font-weight: 500; color: #333;">SLTA / SEDERAJAT</td><td class="text-center" style="font-weight: 600;">282</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">8.02%</td></tr>
+            <tr><td>6</td><td style="font-weight: 500; color: #333;">DIPLOMA I / II</td><td class="text-center" style="font-weight: 600;">4</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">0.11%</td></tr>
+            <tr><td>7</td><td style="font-weight: 500; color: #333;">AKADEMI / DIPLOMA III / S.MUDA</td><td class="text-center" style="font-weight: 600;">15</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">0.43%</td></tr>
+            <tr><td>8</td><td style="font-weight: 500; color: #333;">DIPLOMA IV / STRATA I</td><td class="text-center" style="font-weight: 600;">51</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">1.45%</td></tr>
+            <tr><td>9</td><td style="font-weight: 500; color: #333;">STRATA II</td><td class="text-center" style="font-weight: 600;">4</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">0.11%</td></tr>
+            <tr><td>10</td><td style="font-weight: 500; color: #333;">STRATA III</td><td class="text-center" style="font-weight: 600;">0</td><td class="text-center" style="color: #0b7a3d; font-weight: 500;">0.00%</td></tr>
+            <tr style="background: #f1f5f9; font-weight: 700;">
+              <td colspan="2">Total Keseluruhan</td>
+              <td class="text-center">3.518</td>
+              <td class="text-center">100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pilihan Kategori Data Menu Interaktif -->
+    <section class="monografi-section" data-aos="fade-up" style="padding: 30px; margin-bottom: 30px;">
+      <h3 style="font-size: 16px; margin-bottom: 20px; font-weight: 600; color: #333; text-align: center;">
+        <i class="fa-solid fa-chart-pie" style="color: #0b7a3d; margin-right: 8px;"></i> Pilih Kategori Data Statistik Desa Lainnya
+      </h3>
+      <div class="stat-buttons-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px;">
+        <button class="menu-stat-btn active" onclick="switchMainStat('wilayah', this)"><i class="fa-solid fa-map-location-dot"></i> Wilayah Dusun</button>
+        <button class="menu-stat-btn" onclick="switchMainStat('agama', this)"><i class="fa-solid fa-hands-praying"></i> Agama</button>
+        <button class="menu-stat-btn" onclick="switchMainStat('jeniskelamin', this)"><i class="fa-solid fa-venus-mars"></i> Jenis Kelamin</button>
+        <button class="menu-stat-btn" onclick="switchMainStat('pekerjaan', this)"><i class="fa-solid fa-briefcase"></i> Pekerjaan</button>
+        <button class="menu-stat-btn" onclick="switchMainStat('perkawinan', this)"><i class="fa-solid fa-person-half-dress"></i> Perkawinan</button>
+        <button class="menu-stat-btn" onclick="switchMainStat('umur', this)"><i class="fa-solid fa-cake-candles"></i> Rentang Umur</button>
+      </div>
+    </section>
+
+    <!-- Box Ringkasan Analisis Tekstual -->
+    <div id="stat-info-card" style="background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin: 30px 0; border-left: 5px solid #0b7a3d;" data-aos="fade-up">
+      <h4 style="margin-top: 0; color: #062b16; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+        <i class="fa-solid fa-circle-info" style="color: #0b7a3d;"></i> Analisis & Informasi Statistik
+      </h4>
+      <p id="stat-info-text" style="color: #555; line-height: 1.6; font-size: 0.95rem; margin-top: 10px;">
+        Memuat data kependudukan berdasarkan pembagian wilayah administrasi dusun di Desa Medayu.
+      </p>
+    </div>
+
+    <!-- Section Menampilkan Grafik dan Tabel Rincian -->
+    <section class="monografi-section" data-aos="fade-up">
+      <h2 class="chart-main-title" id="stat-title" style="margin-top: 0; text-align: center; font-size: 1.3rem; color: #062b16; font-weight: 600; text-transform: uppercase;">
+        Komposisi Penduduk Berdasarkan Wilayah Dusun
+      </h2>
+      
+      <!-- Area Render Grafik Dinamis -->
+      <div class="charts-flex-row" id="area-grafik-statistik">
+        <div class="chart-box-card pie-container">
+          <canvas id="mainPieChart"></canvas>
+        </div>
+        <div class="chart-box-card bar-container">
+          <canvas id="mainBarChart"></canvas>
+        </div>
+      </div>
+
+      <h3 class="table-title" style="margin-top: 30px;"><i class="fa-solid fa-table" style="color:#0b7a3d; margin-right:5px;"></i> Rincian Data Tabel Kependudukan</h3>
+      
+      <!-- Kontainer Box Responsif Penampung Tabel -->
+      <div class="table-responsive-box" id="box-tabel-statistik" style="overflow-x: auto; margin-top: 15px;">
+        <!-- Ditulis otomatis menggunakan JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="main-footer">
+    <div class="footer-grid-box">
+      <div class="footer-desc-col">
+        <div class="logo-foot">
+          <img src="../assets/logo.png" alt="Logo">
+          <div>
+            <h3>DESA MEDAYU</h3>
+            <p>Pemerintah Provinsi Jawa Tengah</p>
+          </div>
+        </div>
+        <p class="foot-text">Website resmi penyedia data kependudukan, transparansi anggaran, sistem pelayanan mandiri dan informasi aktual Desa Medayu, Kecamatan Wanadadi, Banjarnegara.</p>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Tautan Cepat</h4>
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html">Profil Desa</a>
+        <a href="pemerintahan.html">Pemerintahan</a>
+        <a href="data.html">Data Monografi</a>
+      </div>
+      
+      <div class="footer-links-col">
+        <h4>Kontak Resmi</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Desa Medayu, Banjarnegara</p>
+        <p><i class="fa fa-envelope"></i> desamedayu@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom-bar">
+      <p>© 2026 Pemerintah Desa Medayu. All Rights Reserved.</p>
+      <div class="foot-socials">
+        <a href="#_"><i class="fab fa-instagram"></i></a>
+        <a href="#_"><i class="fab fa-facebook"></i></a>
+        <a href="#_"><i class="fab fa-youtube"></i></a>
+        <a href="#_"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/#" class="floating-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="../script.js"></script>
+
+  <script>
+    // ==========================================
+    // DATA MASTER RESMI STATISTIK DESA MEDAYU
+    // ==========================================
+    
+    // 1. Data Wilayah Dusun
+    const dataWilayahLengkap = [
+      { type: 'dusun', nama: 'Dusun KARANGMIRI', kk: 312, total: 961, l: 471, p: 490 },
+      { type: 'rw', nama: 'RW 001', kk: 312, total: 961, l: 471, p: 490 },
+      { type: 'rt', nama: 'RT 001', kk: 50, total: 157, l: 77, p: 80 },
+      { type: 'rt', nama: 'RT 002', kk: 60, total: 182, l: 84, p: 98 },
+      { type: 'rt', nama: 'RT 003', kk: 55, total: 178, l: 92, p: 86 },
+      { type: 'rt', nama: 'RT 004', kk: 42, total: 116, l: 57, p: 59 },
+      { type: 'rt', nama: 'RT 005', kk: 53, total: 176, l: 87, p: 89 },
+      { type: 'rt', nama: 'RT 006', kk: 52, total: 152, l: 74, p: 78 },
+      
+      { type: 'dusun', nama: 'Dusun MEDAYU', kk: 184, total: 523, l: 277, p: 246 },
+      { type: 'rw', nama: 'RW 002', kk: 184, total: 523, l: 277, p: 246 },
+      { type: 'rt', nama: 'RT 001', kk: 47, total: 142, l: 78, p: 64 },
+      { type: 'rt', nama: 'RT 002', kk: 57, total: 164, l: 91, p: 73 },
+      { type: 'rt', nama: 'RT 003', kk: 49, total: 129, l: 60, p: 69 },
+      { type: 'rt', nama: 'RT 004', kk: 31, total: 88, l: 48, p: 40 },
+      
+      { type: 'dusun', nama: 'Dusun KAYUNAN', kk: 204, total: 628, l: 309, p: 319 },
+      { type: 'rw', nama: 'RW 003', kk: 204, total: 628, l: 309, p: 319 },
+      { type: 'rt', nama: 'RT 001', kk: 65, total: 220, l: 111, p: 109 },
+      { type: 'rt', nama: 'RT 002', kk: 78, total: 236, l: 115, p: 121 },
+      { type: 'rt', nama: 'RT 003', kk: 61, total: 172, l: 83, p: 89 },
+      
+      { type: 'dusun', nama: 'Dusun KARANGKOBAR', kk: 328, total: 1006, l: 510, p: 496 },
+      { type: 'rw', nama: 'RW 004', kk: 328, total: 1006, l: 510, p: 496 },
+      { type: 'rt', nama: 'RT 001', kk: 45, total: 138, l: 68, p: 70 },
+      { type: 'rt', nama: 'RT 002', kk: 55, total: 156, l: 87, p: 69 }
+    ];
+
+    // 2. Data Agama
+    const dataAgamaLengkap = [
+      { nama: 'ISLAM', jumlah: 3512, persen: '99.83%' },
+      { nama: 'KRISTEN', jumlah: 6, persen: '0.17%' },
+      { nama: 'KATHOLIK', jumlah: 0, persen: '0.00%' },
+      { nama: 'HINDU', jumlah: 0, persen: '0.00%' },
+      { nama: 'BUDHA', jumlah: 0, persen: '0.00%' },
+      { nama: 'KHONGHUCU', jumlah: 0, persen: '0.00%' },
+      { nama: 'KEPERCAYAAN TERHADAP TYME', jumlah: 0, persen: '0.00%' }
+    ];
+
+    // 3. Data Jenis Kelamin
+    const dataJenisKelaminLengkap = [
+      { nama: 'LAKI-LAKI', jumlah: 1784, persen: '50.71%' },
+      { nama: 'PEREMPUAN', jumlah: 1734, persen: '49.29%' }
+    ];
+
+    // 4. Data Pekerjaan
+    const dataPekerjaanLengkap = [
+      { nama: 'BELUM/TIDAK BEKERJA', jumlah: 924, persen: '26.27%' },
+      { nama: 'PETANI / PEKEBUN', jumlah: 812, persen: '23.08%' },
+      { nama: 'BURUH HARIAN LEPAS', jumlah: 645, persen: '18.33%' },
+      { nama: 'KARYAWAN SWASTA', jumlah: 421, persen: '11.97%' },
+      { nama: 'MENGURUS RUMAH TANGGA', jumlah: 388, persen: '11.03%' },
+      { nama: 'WIRASWASTA', jumlah: 198, persen: '5.63%' },
+      { nama: 'PELAJAR / MAHASISWA', jumlah: 94, persen: '2.67%' },
+      { nama: 'PEGAWAI NEGERI SIPIL (PNS)', jumlah: 24, persen: '0.68%' },
+      { nama: 'LAINNYA', jumlah: 12, persen: '0.34%' }
+    ];
+
+    // 5. Data Perkawinan
+    const dataPerkawinanLengkap = [
+      { nama: 'BELUM KAWIN', jumlah: 1412, persen: '40.14%' },
+      { nama: 'KAWIN', jumlah: 1842, persen: '52.36%' },
+      { nama: 'CERAI HIDUP', jumlah: 74, persen: '2.10%' },
+      { nama: 'CERAI MATI', jumlah: 190, persen: '5.40%' }
+    ];
+
+    // 6. Data Rentang Umur
+    const dataUmurLengkap = [
+      { nama: '0 - 4 Tahun (Balita)', jumlah: 245, persen: '6.96%' },
+      { nama: '5 - 9 Tahun', jumlah: 282, persen: '8.02%' },
+      { nama: '10 - 14 Tahun', jumlah: 298, persen: '8.47%' },
+      { nama: '15 - 19 Tahun (Remaja)', jumlah: 312, persen: '8.87%' },
+      { nama: '20 - 29 Tahun (Usia Produktif)', jumlah: 584, persen: '16.60%' },
+      { nama: '30 - 39 Tahun', jumlah: 512, persen: '14.55%' },
+      { nama: '40 - 49 Tahun', jumlah: 495, persen: '14.07%' },
+      { nama: '50 - 59 Tahun', jumlah: 398, persen: '11.31%' },
+      { nama: '60 Tahun Keatas (Lansia)', jumlah: 392, persen: '11.15%' }
+    ];
+
+    let instancePie = null;
+    let instanceBar = null;
+
+    // ==========================================
+    // FUNGSI KONTROLLER NAVIGASI INTERAKTIF
+    // ==========================================
+    function switchMainStat(kategori, elemenTombol) {
+      document.querySelectorAll('.menu-stat-btn').forEach(btn => btn.classList.remove('active'));
+      if(elemenTombol) elemenTombol.classList.add('active');
+
+      const textInfo = document.getElementById('stat-info-text');
+      const titleStat = document.getElementById('stat-title');
+      const boxTabel = document.getElementById('box-tabel-statistik');
+
+      // TAMPILAN KATEGORI: WILAYAH DUSUN
+      if (kategori === 'wilayah') {
+        titleStat.innerText = "Jumlah dan Persentase Penduduk Berdasarkan Wilayah RT di Desa Medayu";
+        textInfo.innerText = "Menampilkan rincian demografi persebaran penduduk Desa Medayu ke dalam 4 wilayah Dusun utama, meliputi jumlah Kepala Keluarga (KK), total populasi per jenis kelamin, serta akumulasi jiwa.";
+        
+        let htmlTabel = `
+          <table class="table-wilayah">
+            <thead>
+              <tr>
+                <th>Wilayah / Ketua Kependudukan</th>
+                <th class="text-center">KK</th>
+                <th class="text-center">L+P (Total)</th>
+                <th class="text-center">Laki-Laki</th>
+                <th class="text-center">Perempuan</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+
+        dataWilayahLengkap.forEach(item => {
+          let kelasKustom = '';
+          let indentasiTeks = item.nama;
+
+          if (item.type === 'dusun') { kelasKustom = 'class="bg-dusun"'; } 
+          else if (item.type === 'rw') {
+            kelasKustom = 'class="bg-rw"';
+            indentasiTeks = `<i class="fa-solid fa-folder-open" style="margin-right:6px; color:#0b7a3d;"></i> ${item.nama}`;
+          } else {
+            kelasKustom = 'class="bg-rt"';
+            indentasiTeks = `<i class="fa-solid fa-turn-up" style="transform: rotate(90deg); margin-right:8px; opacity:0.6;"></i> ${item.nama}`;
+          }
+
+          htmlTabel += `
+            <tr ${kelasKustom}>
+              <td>${indentasiTeks}</td>
+              <td class="text-center">${item.kk}</td>
+              <td class="text-center" style="font-weight:600;">${item.total}</td>
+              <td class="text-center">${item.l}</td>
+              <td class="text-center">${item.p}</td>
+            </tr>
+          `;
+        });
+
+        htmlTabel += `
+            <tr style="background:#062b16; color:#fff; font-weight:700;">
+              <td>TOTAL KESELURUHAN DESA</td>
+              <td class="text-center">1.200</td>
+              <td class="text-center">3.518</td>
+              <td class="text-center">1.784</td>
+              <td class="text-center">1.734</td>
+            </tr>
+          </tbody>
+        </table>`;
+        
+        boxTabel.innerHTML = htmlTabel;
+        buatGrafikMasingMasing(['Dusun Karangmiri', 'Dusun Medayu', 'Dusun Kayunan', 'Dusun Karangkobar'], [961, 523, 628, 1006], 'pie', '#0b7a3d', 'Total Jiwa');
+
+      // TAMPILAN KATEGORI: AGAMA
+      } else if (kategori === 'agama') {
+        titleStat.innerText = "Komposisi Penduduk Berdasarkan Pilihan Agama Desa Medayu";
+        textInfo.innerText = "Profil keagamaan penduduk Desa Medayu menunjukkan tingkat homogenitas yang sangat tinggi, di mana pemeluk agama Islam mendominasi populasi total secara mutlak sebesar 99.83%.";
+        generateTabelUmum(dataAgamaLengkap, "Agama / Kepercayaan");
+        buatGrafikMasingMasing(
+          dataAgamaLengkap.map(i => i.nama), 
+          dataAgamaLengkap.map(i => i.jumlah),
+          'pie', '#8bc34a', 'Jumlah Pemeluk'
+        );
+
+      // TAMPILAN KATEGORI: JENIS KELAMIN
+      } else if (kategori === 'jeniskelamin') {
+        titleStat.innerText = "Komposisi Penduduk Berdasarkan Jenis Kelamin Desa Medayu";
+        textInfo.innerText = "Grafik perbandingan proporsi jumlah penduduk berjenis kelamin Laki-Laki dan Perempuan. Distribusi gender di Desa Medayu berada pada kondisi yang sangat seimbang.";
+        generateTabelUmum(dataJenisKelaminLengkap, "Jenis Kelamin");
+        buatGrafikMasingMasing(
+          dataJenisKelaminLengkap.map(i => i.nama),
+          dataJenisKelaminLengkap.map(i => i.jumlah),
+          'pie', '#4f46e5', 'Jumlah Jiwa'
+        );
+
+      // TAMPILAN KATEGORI: PEKERJAAN
+      } else if (kategori === 'pekerjaan') {
+        titleStat.innerText = "Komposisi Penduduk Menurut Mata Pencaharian / Pekerjaan Desa Medayu";
+        textInfo.innerText = "Menunjukkan diversifikasi profesi warga Medayu. Sektor pertanian/perkebunan dan buruh harian lepas memegang peran poros penggerak roda ekonomi terbesar di wilayah desa.";
+        generateTabelUmum(dataPekerjaanLengkap, "Jenis Pekerjaan");
+        buatGrafikMasingMasing(
+          dataPekerjaanLengkap.map(i => i.nama), 
+          dataPekerjaanLengkap.map(i => i.jumlah),
+          'bar', '#d4af37', 'Pekerja (Jiwa)'
+        );
+
+      // TAMPILAN KATEGORI: PERKAWINAN
+      } else if (kategori === 'perkawinan') {
+        titleStat.innerText = "Komposisi Penduduk Berdasarkan Status Perkawinan Desa Medayu";
+        textInfo.innerText = "Rangkuman status perkawinan penduduk di dalam kartu keluarga secara sah, terbagi atas kelompok belum kawin, kawin tercatat, cerai hidup, maupun cerai mati.";
+        generateTabelUmum(dataPerkawinanLengkap, "Status Hubungan");
+        buatGrafikMasingMasing(
+          dataPerkawinanLengkap.map(i => i.nama), 
+          dataPerkawinanLengkap.map(i => i.jumlah),
+          'doughnut', '#3b82f6', 'Jiwa'
+        );
+
+      // TAMPILAN KATEGORI: RENTANG UMUR
+      } else if (kategori === 'umur') {
+        titleStat.innerText = "Komposisi Persebaran Penduduk Berdasarkan Struktur Rentang Usia";
+        textInfo.innerText = "Analisis demografi piramida umur menunjukkan Desa Medayu memiliki angka angkatan kerja usia produktif (rentang umur 20-49 tahun) yang sangat melimpah dan potensial.";
+        generateTabelUmum(dataUmurLengkap, "Interval Usia");
+        buatGrafikMasingMasing(
+          dataUmurLengkap.map(i => i.nama), 
+          dataUmurLengkap.map(i => i.jumlah),
+          'bar', '#10b981', 'Populasi Jiwa'
+        );
+      }
+    }
+
+    // ==========================================
+    // FUNGSI HELPER LAYOUT JAVASCRIPT
+    // ==========================================
+    
+    function generateTabelUmum(arrayData, namaKolomKategori) {
+      const boxTabel = document.getElementById('box-tabel-statistik');
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 8%;">No</th>
+              <th>${namaKolomKategori}</th>
+              <th class="text-center" style="width: 25%;">Jumlah (Jiwa)</th>
+              <th class="text-center" style="width: 25%;">Persentase (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+      arrayData.forEach((item, index) => {
+        html += `
+          <tr>
+            <td>${index + 1}</td>
+            <td style="font-weight: 500; color: #333;">${item.nama}</td>
+            <td class="text-center" style="font-weight: 600;">${item.jumlah.toLocaleString('id-ID')}</td>
+            <td class="text-center" style="color: #0b7a3d; font-weight: 500;">${item.persen}</td>
+          </tr>
+        `;
+      });
+      html += `
+          <tr class="row-total">
+            <td colspan="2">Total Keseluruhan</td>
+            <td class="text-center">3.518</td>
+            <td class="text-center">100%</td>
+          </tr>
+        </tbody>
+      </table>`;
+      boxTabel.innerHTML = html;
+    }
+
+    function buatGrafikMasingMasing(labelData, valueData, jenisChartKiri, warnaBatang, labelDataset) {
+      if(instancePie) instancePie.destroy();
+      if(instanceBar) instanceBar.destroy();
+
+      const ctxPie = document.getElementById('mainPieChart').getContext('2d');
+      const ctxBar = document.getElementById('mainBarChart').getContext('2d');
+
+      const tipeKiri = (jenisChartKiri === 'bar') ? 'doughnut' : jenisChartKiri;
+
+      instancePie = new Chart(ctxPie, {
+        type: tipeKiri,
+        data: {
+          labels: labelData,
+          datasets: [{
+            data: valueData,
+            backgroundColor: ['#0b7a3d', '#2e6b4d', '#f59e0b', '#2563eb', '#6366f1', '#a855f7', '#ec4899', '#64748b', '#b45309', '#10b981']
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { display: (labelData.length <= 4) ? true : false } } }
+      });
+
+      instanceBar = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+          labels: labelData.map(l => l.length > 15 ? l.substring(0,12)+'...' : l),
+          datasets: [{
+            label: labelDataset,
+            data: valueData,
+            backgroundColor: warnaBatang
+          }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+    }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hashKategori = window.location.hash.substring(1); 
+  
+  if (hashKategori) {
+    const targetButton = document.querySelector(`button[onclick*="'${hashKategori}'"]`);
+    if (targetButton) {
+      switchMainStat(hashKategori, targetButton);
+      
+      document.getElementById('stat-info-card').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+  }
+
+  switchMainStat('wilayah', document.querySelector('.menu-stat-btn.active'));
+});
+  </script>
+</body>
+</html>

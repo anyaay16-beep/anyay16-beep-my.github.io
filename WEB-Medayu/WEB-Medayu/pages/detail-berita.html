@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Berita - Desa Medayu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ===== DETAIL BERITA PAGE ===== */
+    .hero-berita {
+      background: linear-gradient(135deg, #062b16 0%, #0b7a3d 100%);
+      padding: 100px 5% 50px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-berita::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: rgba(0,196,106,0.08);
+      border-radius: 50%;
+      top: -150px; right: -100px;
+    }
+    .hero-berita::after {
+      content: '';
+      position: absolute;
+      width: 250px; height: 250px;
+      background: rgba(0,196,106,0.06);
+      border-radius: 50%;
+      bottom: -80px; left: 5%;
+    }
+    .hero-berita-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .breadcrumb-berita {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-berita a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb-berita a:hover { color: #00c46a; }
+    .breadcrumb-berita i { font-size: 10px; }
+
+    .tag-kategori {
+      display: inline-block;
+      background: rgba(0,196,106,0.2);
+      border: 1px solid rgba(0,196,106,0.4);
+      color: #a8f0c8;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .judul-hero-berita {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: #ffffff;
+      margin-bottom: 20px;
+      max-width: 780px;
+    }
+    .meta-berita {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+    .meta-item i { color: #00c46a; font-size: 13px; }
+
+    /* ===== KONTEN UTAMA ===== */
+    .wrapper-detail-berita {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 5%;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 35px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .wrapper-detail-berita { grid-template-columns: 1fr; }
+    }
+
+    /* Kolom Kiri - Artikel */
+    .artikel-konten {
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    }
+    .foto-utama-berita {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    .foto-utama-berita-placeholder {
+      width: 100%;
+      height: 420px;
+      background: linear-gradient(135deg, #eef7f2, #d0edd9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #0b7a3d;
+      gap: 12px;
+    }
+    .foto-utama-berita-placeholder i { font-size: 48px; opacity: 0.4; }
+    .foto-utama-berita-placeholder span { font-size: 13px; opacity: 0.5; }
+
+    .isi-artikel {
+      padding: 35px 40px 40px;
+    }
+    .isi-artikel p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 18px;
+    }
+    .isi-artikel h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #062b16;
+      margin: 28px 0 12px;
+      padding-left: 14px;
+      border-left: 4px solid #00c46a;
+    }
+    .isi-artikel ul {
+      padding-left: 20px;
+      margin-bottom: 18px;
+    }
+    .isi-artikel ul li {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .quote-berita {
+      background: #eef7f2;
+      border-left: 4px solid #0b7a3d;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px;
+      margin: 22px 0;
+      font-size: 14px;
+      font-style: italic;
+      color: #2e6b4d;
+      line-height: 1.7;
+    }
+
+    /* Share & Tags */
+    .footer-artikel {
+      padding: 20px 40px 35px;
+      border-top: 1px solid #f1f5f1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .share-box { display: flex; align-items: center; gap: 12px; }
+    .share-label { font-size: 13px; color: #666; font-weight: 500; }
+    .btn-share {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-share:hover { transform: translateY(-3px); opacity: 0.85; }
+    .btn-share.wa { background: #25D366; color: white; }
+    .btn-share.fb { background: #1877F2; color: white; }
+    .btn-share.tw { background: #000; color: white; }
+
+    /* Kolom Kanan - Sidebar */
+    .sidebar-berita { display: flex; flex-direction: column; gap: 22px; }
+
+    .box-sidebar {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #062b16;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eef7f2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sidebar-title i { color: #0b7a3d; }
+
+    /* Info Kegiatan */
+    .info-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+    .info-row:last-child { margin-bottom: 0; }
+    .info-icon {
+      width: 32px; height: 32px;
+      background: #eef7f2;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #0b7a3d;
+      font-size: 13px;
+    }
+    .info-label { font-size: 11px; color: #999; display: block; }
+    .info-val { font-size: 13px; color: #333; font-weight: 500; }
+
+    /* Berita Terkait */
+    .kartu-berita-mini {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f5f5f5;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .kartu-berita-mini:last-child { border-bottom: none; padding-bottom: 0; }
+    .kartu-berita-mini:hover { opacity: 0.75; }
+    .thumb-mini {
+      width: 70px; height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #eef7f2;
+    }
+    .thumb-mini-placeholder {
+      width: 70px; height: 60px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #eef7f2, #d0edd9);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #0b7a3d; font-size: 20px; opacity: 0.5;
+    }
+    .info-mini h5 {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #222;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+    .info-mini span {
+      font-size: 11px;
+      color: #999;
+    }
+
+    /* Navigasi Artikel */
+    .nav-artikel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      max-width: 1100px;
+      margin: 0 auto 50px;
+      padding: 0 5%;
+    }
+    .nav-artikel-btn {
+      background: white;
+      border-radius: 14px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, transform 0.2s;
+      font-size: 13px;
+    }
+    .nav-artikel-btn:hover { box-shadow: 0 8px 25px rgba(11,122,61,0.12); transform: translateY(-2px); }
+    .nav-artikel-btn.next { flex-direction: row-reverse; text-align: right; }
+    .nav-ikon { width: 38px; height: 38px; background: #eef7f2; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #0b7a3d; flex-shrink: 0; }
+    .nav-arah { font-size: 11px; color: #999; margin-bottom: 2px; }
+    .nav-judul { font-weight: 600; color: #062b16; font-size: 12.5px; line-height: 1.4; }
+
+    @media (max-width: 600px) {
+      .judul-hero-berita { font-size: 20px; }
+      .foto-utama-berita, .foto-utama-berita-placeholder { height: 240px; }
+      .isi-artikel { padding: 22px 20px 28px; }
+      .footer-artikel { padding: 16px 20px 24px; }
+      .nav-artikel { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader">
+    <div class="loader-content">
+      <img src="../assets/logo.png" alt="Logo Desa">
+      <h2>DESA MEDAYU</h2>
+      <div class="loading"></div>
+    </div>
+  </div>
+
+  <nav id="navbar" style="background: #062b16;">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Logo">
+      <div>
+        <h2>DESA MEDAYU</h2>
+        <span>Kab. Banjarnegara</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Beranda</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="pemerintahan.html">Pemerintahan</a></li>
+      <li><a href="data.html">Data Monografi</a></li>
+      <li><a href="informasi.html" class="active">Informasi</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-berita">
+    <div class="hero-berita-inner" data-aos="fade-up">
+      <div class="breadcrumb-berita">
+        <a href="../index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="informasi.html">Informasi</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span id="breadcrumb-judul">Detail Berita</span>
+      </div>
+      <span class="tag-kategori" id="tag-kategori">Kegiatan Desa</span>
+      <h1 class="judul-hero-berita" id="judul-halaman">Memuat berita...</h1>
+      <div class="meta-berita">
+        <div class="meta-item"><i class="fa-solid fa-calendar-days"></i> <span id="meta-tanggal">-</span></div>
+        <div class="meta-item"><i class="fa-solid fa-user-pen"></i> <span id="meta-penulis">-</span></div>
+        <div class="meta-item"><i class="fa-solid fa-eye"></i> <span id="meta-views">-</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONTEN -->
+  <div class="wrapper-detail-berita">
+    
+    <!-- Artikel -->
+    <div class="artikel-konten" data-aos="fade-up">
+      <div id="foto-container">
+        <div class="foto-utama-berita-placeholder">
+          <i class="fa-solid fa-image"></i>
+          <span>Foto tidak tersedia</span>
+        </div>
+      </div>
+      <div class="isi-artikel" id="isi-artikel">
+        <p style="color:#aaa;">Memuat konten berita...</p>
+      </div>
+      <div class="footer-artikel">
+        <div class="share-box">
+          <span class="share-label">Bagikan:</span>
+          <a href="#" class="btn-share wa" id="share-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="btn-share fb" id="share-fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="btn-share tw" id="share-tw" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <a href="informasi.html" style="font-size:13px; color:#0b7a3d; font-weight:500; text-decoration:none;">
+          <i class="fa-solid fa-arrow-left"></i> Kembali ke Informasi
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar-berita" data-aos="fade-left">
+      
+      <!-- Info Kegiatan -->
+      <div class="box-sidebar">
+        <div class="sidebar-title"><i class="fa-solid fa-circle-info"></i> Info Kegiatan</div>
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-calendar"></i></div>
+          <div><span class="info-label">Tanggal</span><span class="info-val" id="side-tanggal">-</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+          <div><span class="info-label">Penulis / Sumber</span><span class="info-val" id="side-penulis">-</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-tag"></i></div>
+          <div><span class="info-label">Kategori</span><span class="info-val" id="side-kategori">-</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+          <div><span class="info-label">Lokasi</span><span class="info-val" id="side-lokasi">Desa Medayu</span></div>
+        </div>
+      </div>
+
+      <!-- Berita Terkait -->
+      <div class="box-sidebar">
+        <div class="sidebar-title"><i class="fa-solid fa-newspaper"></i> Berita Terkait</div>
+        <div id="berita-terkait-list"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Navigasi Artikel -->
+  <div class="nav-artikel" id="nav-artikel"></div>
+
+  <footer id="main-footer">
+    <div class="footer-grid-box">
+      <div class="footer-desc-col">
+        <div class="logo-foot">
+          <img src="../assets/logo.png" alt="Logo">
+          <div><h3>DESA MEDAYU</h3><p>Pemerintah Provinsi Jawa Tengah</p></div>
+        </div>
+        <p class="foot-text">Website resmi penyedia data kependudukan, transparansi anggaran, sistem pelayanan mandiri dan informasi aktual Desa Medayu, Kecamatan Wanadadi, Banjarnegara.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Tautan Cepat</h4>
+        <a href="../index.html">Beranda</a>
+        <a href="profil.html">Profil Desa</a>
+        <a href="pemerintahan.html">Pemerintahan</a>
+        <a href="data.html">Data Monografi</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Kontak Resmi</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Desa Medayu, Banjarnegara</p>
+        <p><i class="fa fa-envelope"></i> desamedayu@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <p>© 2026 Pemerintah Desa Medayu. All Rights Reserved.</p>
+      <div class="foot-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/#" class="floating-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    // ===== DATABASE BERITA =====
+    const databaseBeritaDesa = {
+      "musyawarah-komunitas": {
+        judul: "Kegiatan Forum Musyawarah Antar Komunitas di Desa Medayu",
+        kategori: "Kegiatan Desa",
+        tanggal: "15 Mei 2025",
+        penulis: "Admin Desa Medayu",
+        views: "248 kali dilihat",
+        lokasi: "Balai Desa Medayu",
+        foto: "../assets/img/berita1.png",
+        isi: `
+          <p>Pemerintah Desa Medayu menyelenggarakan Forum Musyawarah Antar Komunitas yang bertujuan untuk memperkuat koordinasi lintas wilayah dan memastikan data kependudukan seluruh warga tercatat dengan baik dan akurat.</p>
+          <h3>Tujuan Kegiatan</h3>
+          <p>Forum ini diadakan sebagai bagian dari program sinkronisasi data kependudukan dan validasi berkas jaminan sosial warga Desa Medayu. Kegiatan ini dihadiri oleh perwakilan dari setiap RT dan RW di empat dusun.</p>
+          <ul>
+            <li>Sinkronisasi data kependudukan antar RT dan RW</li>
+            <li>Validasi berkas jaminan sosial warga penerima manfaat</li>
+            <li>Koordinasi program bantuan sosial desa</li>
+            <li>Sosialisasi kebijakan administrasi kependudukan terbaru</li>
+          </ul>
+          <div class="quote-berita">"Musyawarah ini adalah wujud nyata semangat gotong royong warga Desa Medayu dalam membangun desa yang lebih tertib administrasi dan merata dalam pelayanan." — Kepala Desa Medayu</div>
+          <h3>Hasil Musyawarah</h3>
+          <p>Dalam forum tersebut, seluruh peserta menyepakati jadwal pemutakhiran data kependudukan secara berkala setiap triwulan. Selain itu, dibentuk tim koordinasi tingkat dusun untuk memperlancar alur informasi antara warga dan pemerintah desa.</p>
+          <p>Kegiatan berlangsung dengan tertib dan antusias. Diharapkan hasil musyawarah ini dapat diimplementasikan secara konsisten demi peningkatan kualitas pelayanan publik di Desa Medayu.</p>
+        `
+      },
+      "evaluasi-aparatur": {
+        judul: "Rekomendasi dan Evaluasi Kinerja Aparatur Desa dalam Pelayanan Administrasi",
+        kategori: "Pemerintahan",
+        tanggal: "22 April 2025",
+        penulis: "Sekretariat Desa",
+        views: "192 kali dilihat",
+        lokasi: "Kantor Desa Medayu",
+        foto: "../assets/img/berita2.png",
+        isi: `
+          <p>Pemerintah Desa Medayu mengadakan evaluasi kinerja seluruh aparatur desa sebagai bagian dari komitmen peningkatan mutu pelayanan administrasi kepada masyarakat.</p>
+          <h3>Latar Belakang</h3>
+          <p>Seiring meningkatnya kebutuhan masyarakat akan pelayanan administrasi yang cepat, tepat, dan transparan, Pemerintah Desa Medayu terus berupaya melakukan pembenahan sistem layanan internal.</p>
+          <h3>Rekomendasi Utama</h3>
+          <ul>
+            <li>Peningkatan kompetensi digital aparatur desa melalui pelatihan berkala</li>
+            <li>Implementasi sistem antrian digital untuk pelayanan surat menyurat</li>
+            <li>Penyederhanaan alur birokrasi pengajuan dokumen kependudukan</li>
+            <li>Peningkatan responsivitas melalui WhatsApp resmi desa</li>
+          </ul>
+          <div class="quote-berita">"Evaluasi ini bukan hanya untuk menilai, tetapi untuk mendorong seluruh aparatur agar terus bertumbuh dan memberikan yang terbaik bagi warga." — Sekretaris Desa</div>
+          <h3>Tindak Lanjut</h3>
+          <p>Hasil evaluasi akan ditindaklanjuti dengan program pelatihan peningkatan kapasitas yang dijadwalkan pada triwulan berikutnya. Seluruh aparatur desa diharapkan dapat menerapkan standar pelayanan prima sesuai pedoman yang telah disepakati.</p>
+        `
+      }
+    };
+
+    // Urutan berita untuk navigasi
+    const urutan = Object.keys(databaseBeritaDesa);
+
+    // Ambil ID dari URL
+    const params = new URLSearchParams(window.location.search);
+    const idBerita = params.get('id');
+
+    if (idBerita && databaseBeritaDesa[idBerita]) {
+      const b = databaseBeritaDesa[idBerita];
+      const idx = urutan.indexOf(idBerita);
+
+      // Isi hero
+      document.title = b.judul + " - Desa Medayu";
+      document.getElementById('breadcrumb-judul').textContent = b.judul.substring(0, 40) + '...';
+      document.getElementById('tag-kategori').textContent = b.kategori;
+      document.getElementById('judul-halaman').textContent = b.judul;
+      document.getElementById('meta-tanggal').textContent = b.tanggal;
+      document.getElementById('meta-penulis').textContent = b.penulis;
+      document.getElementById('meta-views').textContent = b.views;
+
+      // Isi sidebar
+      document.getElementById('side-tanggal').textContent = b.tanggal;
+      document.getElementById('side-penulis').textContent = b.penulis;
+      document.getElementById('side-kategori').textContent = b.kategori;
+      document.getElementById('side-lokasi').textContent = b.lokasi;
+
+      // Foto utama
+      const fotoContainer = document.getElementById('foto-container');
+      if (b.foto) {
+        fotoContainer.innerHTML = `<img src="${b.foto}" alt="${b.judul}" class="foto-utama-berita" onerror="this.parentElement.innerHTML='<div class=\'foto-utama-berita-placeholder\'><i class=\'fa-solid fa-image\'></i><span>Foto tidak tersedia</span></div>'">`;
+      }
+
+      // Isi artikel
+      document.getElementById('isi-artikel').innerHTML = b.isi;
+
+      // Share links
+      const url = encodeURIComponent(window.location.href);
+      const teks = encodeURIComponent(b.judul);
+      document.getElementById('share-wa').href = `https://wa.me/?text=${teks}%20${url}`;
+      document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      document.getElementById('share-tw').href = `https://twitter.com/intent/tweet?text=${teks}&url=${url}`;
+
+      // Berita terkait (selain yang sedang dibuka)
+      const terkaitHtml = urutan
+        .filter(k => k !== idBerita)
+        .map(k => {
+          const br = databaseBeritaDesa[k];
+          return `
+            <a href="detail-berita.html?id=${k}" class="kartu-berita-mini">
+              <div class="thumb-mini-placeholder"><i class="fa-solid fa-newspaper"></i></div>
+              <div class="info-mini">
+                <h5>${br.judul}</h5>
+                <span><i class="fa-solid fa-calendar" style="font-size:10px;"></i> ${br.tanggal}</span>
+              </div>
+            </a>`;
+        }).join('');
+      document.getElementById('berita-terkait-list').innerHTML = terkaitHtml || '<p style="font-size:13px;color:#999;">Tidak ada berita lain.</p>';
+
+      // Navigasi prev/next
+      const navEl = document.getElementById('nav-artikel');
+      let navHtml = '';
+      if (idx > 0) {
+        const prev = databaseBeritaDesa[urutan[idx - 1]];
+        navHtml += `<a href="detail-berita.html?id=${urutan[idx-1]}" class="nav-artikel-btn">
+          <div class="nav-ikon"><i class="fa-solid fa-arrow-left"></i></div>
+          <div><div class="nav-arah">Berita Sebelumnya</div><div class="nav-judul">${prev.judul}</div></div>
+        </a>`;
+      } else {
+        navHtml += `<div></div>`;
+      }
+      if (idx < urutan.length - 1) {
+        const next = databaseBeritaDesa[urutan[idx + 1]];
+        navHtml += `<a href="detail-berita.html?id=${urutan[idx+1]}" class="nav-artikel-btn next">
+          <div class="nav-ikon"><i class="fa-solid fa-arrow-right"></i></div>
+          <div><div class="nav-arah">Berita Berikutnya</div><div class="nav-judul">${next.judul}</div></div>
+        </a>`;
+      }
+      navEl.innerHTML = navHtml;
+
+    } else {
+      document.querySelector('.wrapper-detail-berita').innerHTML = `
+        <div style="grid-column:1/-1; text-align:center; padding:80px 20px; background:white; border-radius:20px;">
+          <i class="fa-solid fa-circle-exclamation" style="font-size:48px; color:#dc2626; margin-bottom:20px; display:block;"></i>
+          <h3 style="color:#dc2626; margin-bottom:10px;">Berita tidak ditemukan</h3>
+          <p style="color:#666; margin-bottom:25px;">Pastikan Anda membuka halaman ini melalui tautan yang benar.</p>
+          <a href="informasi.html" style="background:#0b7a3d; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-size:14px;">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Informasi
+          </a>
+        </div>`;
+    }
+
+    // Init AOS
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>
